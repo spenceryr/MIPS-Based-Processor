@@ -8,3 +8,4 @@ always_comb begin
     default: out = 'b0;
     endcase
 end
+endmodule
