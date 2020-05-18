@@ -4,8 +4,9 @@
 //
 // Additional Comments: 					  $clog2
 
-module reg_file #(parameter W=8, D=3)(		 // W = data path width; D = pointer width
+module reg_file #(parameter W=8, D=2)(		 // W = data path width; D = pointer width
   input           CLK,
+                  reset,
                   write_en,
   input  [ D-1:0] raddrA,
                   raddrB,
@@ -14,8 +15,6 @@ module reg_file #(parameter W=8, D=3)(		 // W = data path width; D = pointer wid
   output [ W-1:0] data_outA,
   output [W-1:0] data_outB
     );
-
-const logic [2:0] REG_M = 3'b100;
 
 // W bits wide [W-1:0] and 2**4 registers deep 	 
 logic [W-1:0] registers[2**D];	  // or just registers[16] if we know D=4 always
@@ -26,7 +25,10 @@ assign data_outB = registers[raddrB];               // can read from addr 0, jus
 
 // sequential (clocked) writes 
 always_ff @ (posedge CLK)
-  if (write_en)	                             // && waddr requires nonzero pointer address
+  if (reset)
+    for(int i=0;i<2**D;i++)
+        registers[i] = '0;
+  else if (write_en)	                             // && waddr requires nonzero pointer address
 // if (write_en) if want to be able to write to address 0, as well
     registers[waddr] <= data_in;
 

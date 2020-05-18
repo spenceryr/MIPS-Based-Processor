@@ -1,8 +1,7 @@
 import definitions::*;
 module datapath(
     input CLK,
-          RESET,
-          HALT,
+          START,
           CTRL_branch_rel_nz,
           CTRL_branch_rel_z,
           CTRL_branch_abs,
@@ -13,8 +12,9 @@ module datapath(
           CTRL_read_mem,
           CTRL_write_mem,
     input [2:0] CTRL_alu_op,
-    output [3:0] op_out,
-    output funct_out
+    output [3:0] opcode,
+    output DONE,
+           fcode
 );
 
 assign op_out = instr_out[8:5];
@@ -33,7 +33,7 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .IN_C_OUT(ALU_c_out),
               .IN_S_OUT(ALU_s_out),
               .CLK(CLK),
-              .reset(RESET),
+              .reset(START),
               .OUT_ALU_ZERO(F_ZERO),
               .OUT_C_OUT(F_C_OUT),
               .OUT_S_OUT(F_S_OUT));
@@ -52,10 +52,10 @@ IF infet (.Branch_abs(CTRL_branch_abs),
   .Branch_rel_nz(CTRL_branch_rel_nz),
   .ALU_zero(F_ZERO),
   .Target(PC_target),
-  .Init(RESET), 
-  .Halt(HALT),
+  .Init(START),
   .CLK(CLK),
-  .PC(PC));
+  .PC(PC),
+  .DONE(DONE));
 
 InstROM ir (.InstAddress(PC), .InstOut(instr_out));
 
@@ -86,7 +86,7 @@ ALU alu (.INPUTA(reg_a_out),
          .ZERO(ALU_zero));
          
 data_mem dm (.CLK(CLK),
-             .reset(RESET),
+             .reset(START),
              .DataAddress(reg_b_out),
              .ReadMem(CTRL_read_mem),
              .WriteMem(CTRL_write_mem),
