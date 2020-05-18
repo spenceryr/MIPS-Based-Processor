@@ -6,11 +6,11 @@ USAGE = "Usage: python cith_assembler <in file> [optional:<out file>]"
 INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": (1, ("r", "i3"), -1),
                 "subi": (2, ("r", "i3"), -1), "shr": (3, ("r", "i3"), -1), "shl": (4, ("r", "i3"), -1),
                 "and": (5, ("r", "r"), 0), "or": (5, ("r", "r"), 1), "andi": (6, ("r", "i3"), -1),
-                "xor": (7, ("r", "r"), 0), "beqz": (8, ("i5",), -1), "bneqz": (9, ("i5",), -1),
-                "jmp": (10, ("i5",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
-                "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
+                "xor": (7, ("r", "r"), 0), "beqz": (8, ("l",), -1), "bneqz": (9, ("l",), -1),
+                "jmp": (10, ("l",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
+                "move": (12, ("r", "r"), 0), "call": (13, ("l",), -1), "ret": (14, ("l",), -1)}
 
-LUT_VALS = {"calculate_parity": 0, "loop2_init": 1, "loop1": 2, "loop2": 3, "main": 4}
+LUT_VALS = {"calculate_parity": 0, "loop2_init": 1, "loop1": 2, "loop2": 3, "main": 4, "done": 5}
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
 
@@ -80,6 +80,11 @@ def parse_line(instr, line, line_num):
                 args += ('{0:0' + str(i_size) + 'b}').format(a)
             else:
                 raise CithParseError("Integer immediate out of bounds, expected between or equal to 0 and {}".format(2**i_size-1), line, line_num)
+        elif arg_type == "l":
+        	if a in LUT_VALS:
+        		args += '{0:05b}'.format(LUT_VALS[a])
+        	else:
+        		raise CithParseError("Not a valid label value", line, line_num)
         
         arg_num += 1
         comma = not comma
