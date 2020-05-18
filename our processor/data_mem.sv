@@ -24,9 +24,7 @@ module data_mem(
   always_ff @ (posedge CLK)		 // writes are sequential
     if(reset) begin
       for(int i=0;i<256;i++)
-	    core[i] <= 0;
-      core[ 16] <= 254;
-      core[244] <= 5;
+	    core[i] <= '0;
 	end
     else if(WriteMem) begin
       core[DataAddress] <= DataIn;

@@ -4,17 +4,25 @@ module IF(
   input Branch_rel_nz,
   input ALU_zero,			  // flag from ALU
   input [15:0] Target,		  // jump ... "how high?"
-  input Init,				  // reset, start, etc. 
-  input Halt,				  // 1: freeze PC; 0: run PC
+  input Init,				  // reset, start, etc
   input CLK,				  // PC can change on pos. edges only
   output logic[15:0] PC		  // program counter
+  output logic DONE
   );
+  
+  logic [15:0] PC_INIT = 0;
 	 
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
 	if(Init)
-	  PC <= 0;				  // for first program; want different value for 2nd or 3rd
-	else if(Halt)
-	  PC <= PC;
+      PC <= PC_INIT;				  // for first program; want different value for 2nd or 3rd
+	else if(PC == 123) begin
+	  DONE <= '1;
+      PC_INIT <= 124;
+    end
+    else if (PC == 300) begin
+      DONE <= '1;
+      PC_INIT <= 301;
+    end
 	else if(Branch_abs)	      // unconditional absolute jump
 	  PC <= Target;
 	else if(Branch_rel_z && ALU_zero) // conditional relative jump
