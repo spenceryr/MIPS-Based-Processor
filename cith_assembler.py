@@ -8,9 +8,9 @@ INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": 
                 "and": (5, ("r", "r"), 0), "or": (5, ("r", "r"), 1), "andi": (6, ("r", "i3"), -1),
                 "xor": (7, ("r", "r"), 0), "beqz": (8, ("i5",), -1), "bneqz": (9, ("i5",), -1),
                 "jmp": (10, ("i5",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
-                "move": (12, ("r", "r"), -1), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
+                "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
 
-LUT_VALS = {}
+LUT_VALS = {"calculate_parity": 0, "loop2_init": 1, "loop1": 2, "loop2": 3, "main": 4}
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
 
