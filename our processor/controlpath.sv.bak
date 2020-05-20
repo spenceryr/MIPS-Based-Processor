@@ -38,7 +38,7 @@ endcase
 
 always_comb
     if (DONE)
-        CTRL_reg_write_en = 1'b0;
+        CTRL_reg_write_en = 1'b0
     else
         casez({opcode, fcode})
         cADDR, cSUBR, cADDI, cSUBI,
@@ -49,7 +49,7 @@ endcase
 
 always_comb
     if (DONE)
-        CTRL_alu_src = 1'b0;
+        CTRL_alu_src = 1'b0
     else
         casez({opcode, fcode})
         cADDI, cSUBI, cSHR, cSHL, cANDI: CTRL_alu_src = 1'b1;
@@ -58,7 +58,7 @@ endcase
 
 always_comb
     if (DONE)
-        CTRL_alu_sc_in = 1'b0;
+        CTRL_alu_sc_in = 1'b0
     else
         casez({opcode, fcode})
         cSUBR, cSUBI: CTRL_alu_sc_in = 1'b1;

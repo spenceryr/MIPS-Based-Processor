@@ -15,7 +15,7 @@ module ALU(
   output logic [7:0] OUT,		  // or:  output reg [7:0] OUT,
   output logic C_OUT,			  // shift out/carry out
   output logic S_OUT,
-  output logic ZERO              // zero out flag          
+  output logic ZERO,              // zero out flag          
     );
 	 
   op_mne op_mnemonic;			  // type enum: used for convenient waveform viewing
@@ -34,11 +34,11 @@ module ALU(
     case(OP)
     kADD : {S_OUT, C_OUT, OUT} = {1'b0, {1'b0,INPUTA} + INPUTB + C_IN};  // add w/ carry-in & out
     kSUB : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA + (~INPUTB) + C_IN};
-    kSHL :  if (SH_1)
+    kLSH :  if (SH_1)
                 {C_OUT, S_OUT, OUT} = {1'b0, INPUTA[0], INPUTA[6:0], S_IN};
             else
                 {C_OUT, S_OUT, OUT} = {1'b0, 1'b0, INPUTA << INPUTB};
-    kSHR :  if (SH_1)
+    kRSH :  if (SH_1)
                 {C_OUT, S_OUT, OUT} = {1'b0, INPUTA[0], S_IN, INPUTA[7:1]};
             else
                 {C_OUT, S_OUT, OUT} = {1'b0, 1'b0, INPUTA >> INPUTB};

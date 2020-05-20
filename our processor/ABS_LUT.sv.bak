@@ -1,4 +1,4 @@
-module REL_LUT #(parameter SIZE=5, WIDTH=16) (
+module ABS_LUT #(parameter SIZE=5, WIDTH=16) (
     input [SIZE-1:0] in,
     output [WIDTH-1:0] out
 );
@@ -8,4 +8,3 @@ always_comb begin
     default: out = 'b0;
     endcase
 end
-endmodule
