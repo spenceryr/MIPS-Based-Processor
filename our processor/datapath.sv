@@ -17,8 +17,6 @@ module datapath(
            fcode
 );
 
-assign op_out = instr_out[8:5];
-assign funct_out = instr_out[0];
 
 logic [7:0] ALU_out, ALU_in_b;
 logic [15:0] PC, PC_target;
@@ -28,6 +26,10 @@ logic [8:0] instr_out;
 logic [7:0] reg_write_data;
 logic [7:0] reg_a_out, reg_b_out;
 logic [15:0] rel_lut_out, abs_lut_out;
+
+assign opcode = instr_out[8:5];
+assign fcode = instr_out[0];
+
 
 ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .IN_C_OUT(ALU_c_out),

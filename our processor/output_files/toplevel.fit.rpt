@@ -1,5 +1,5 @@
 Fitter report for toplevel
-Tue May 19 19:37:08 2020
+Tue May 19 22:07:53 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue May 19 19:37:07 2020       ;
+; Fitter Status                      ; Successful - Tue May 19 22:07:53 2020       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; toplevel                                    ;
 ; Top-level Entity Name              ; toplevel                                    ;
@@ -148,7 +148,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.2%      ;
+;     Processors 2-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -757,8 +757,8 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Info (144001): Generated suppressed messages file C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/output_files/toplevel.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6083 megabytes
-    Info: Processing ended: Tue May 19 19:37:08 2020
+    Info: Peak virtual memory: 6081 megabytes
+    Info: Processing ended: Tue May 19 22:07:53 2020
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 

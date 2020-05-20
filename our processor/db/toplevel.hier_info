@@ -33,12 +33,12 @@ CTRL_write_mem => CTRL_write_mem.IN1
 CTRL_alu_op[0] => CTRL_alu_op[0].IN1
 CTRL_alu_op[1] => CTRL_alu_op[1].IN1
 CTRL_alu_op[2] => CTRL_alu_op[2].IN1
-opcode[0] <= <GND>
-opcode[1] <= <GND>
-opcode[2] <= <GND>
-opcode[3] <= <GND>
+opcode[0] <= InstROM:ir.InstOut
+opcode[1] <= InstROM:ir.InstOut
+opcode[2] <= InstROM:ir.InstOut
+opcode[3] <= InstROM:ir.InstOut
 DONE <= IF:infet.DONE
-fcode <= <GND>
+fcode <= instr_out[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |toplevel|datapath:dp|ALU_FLAGS:af
