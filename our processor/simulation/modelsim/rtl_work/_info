@@ -1,0 +1,418 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simulation/modelsim
+vABS_LUT
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1589951299
+!i10b 1
+!s100 Pm^c0OzV:@DJV71ZD@n2o1
+ISQzo:0?O>iHGFX61?>8zo1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ABS_LUT_sv_unit
+S1
+R0
+w1589947197
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ABS_LUT.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ABS_LUT.sv
+L0 1
+Z4 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z5 !s108 1589951299.000000
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ABS_LUT.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ABS_LUT.sv|
+!s101 -O0
+!i113 1
+Z6 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+Z7 !s92 -sv -work work {+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor} -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@a@b@s_@l@u@t
+vALU
+R1
+Z8 DXx4 work 11 definitions 0 22 @oz2JjLn6BIU]EmRBP3k30
+DXx4 work 11 ALU_sv_unit 0 22 ?e8U5]k6HeLDlPaAg:Lim2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 e4FAQ:<halkhg]OW2<>da1
+Ij6AhO2f04Rz:]Q<aU^<iV3
+!s105 ALU_sv_unit
+S1
+R0
+Z9 w1589942117
+Z10 8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU.sv
+Z11 FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU.sv
+L0 9
+R4
+Z12 !s108 1589951300.000000
+Z13 !s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU.sv|
+Z14 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+n@a@l@u
+vALU_FLAGS
+R1
+R2
+!i10b 1
+!s100 4a>hNRf0a5C7?;@T[ehVT2
+IE6ibg9do3GlW[aelO=W=]0
+R3
+!s105 ALU_FLAGS_sv_unit
+S1
+R0
+Z15 w1589841722
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU_FLAGS.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU_FLAGS.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU_FLAGS.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU_FLAGS.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+n@a@l@u_@f@l@a@g@s
+XALU_sv_unit
+R1
+R8
+V?e8U5]k6HeLDlPaAg:Lim2
+r1
+!s85 0
+31
+!i10b 1
+!s100 llA`i>R=ETQD0Dka=Z2Ke0
+I?e8U5]k6HeLDlPaAg:Lim2
+!i103 1
+S1
+R0
+R9
+R10
+R11
+L0 8
+R4
+R12
+R13
+R14
+!s101 -O0
+!i113 1
+R6
+R7
+n@a@l@u_sv_unit
+vcontrolpath
+R1
+R8
+DXx4 work 19 controlpath_sv_unit 0 22 6hXV;k6=_04Sm7@6nR;@g0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 nV>d<ONa3AG^jCZ5[OHLM0
+I?`?>WK`Te;M_C^;d;;TEL3
+!s105 controlpath_sv_unit
+S1
+R0
+Z16 w1589942003
+Z17 8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/controlpath.sv
+Z18 FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/controlpath.sv
+L0 2
+R4
+R12
+Z19 !s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/controlpath.sv|
+Z20 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/controlpath.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+Xcontrolpath_sv_unit
+R1
+R8
+V6hXV;k6=_04Sm7@6nR;@g0
+r1
+!s85 0
+31
+!i10b 1
+!s100 >j_YO5[7Q2_Daf4^A?G0O3
+I6hXV;k6=_04Sm7@6nR;@g0
+!i103 1
+S1
+R0
+R16
+R17
+R18
+L0 1
+R4
+R12
+R19
+R20
+!s101 -O0
+!i113 1
+R6
+R7
+vdata_mem
+R1
+R2
+!i10b 1
+!s100 4F_ODRz2bQbGRZk>>X2bS3
+I`baMWK6TSK_c8aC46gZjj3
+R3
+!s105 data_mem_sv_unit
+S1
+R0
+Z21 w1589941737
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/data_mem.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/data_mem.sv
+L0 6
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/data_mem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/data_mem.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+vdatapath
+R1
+R8
+DXx4 work 16 datapath_sv_unit 0 22 Z;Piol:fNO5F>nlGl=eIo3
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 Je4b6R;QJj4dWo<3VMjA11
+I;8oFG6>GNPTLR[hiQUDWl1
+!s105 datapath_sv_unit
+S1
+R0
+Z22 w1589951114
+Z23 8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv
+Z24 FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv
+L0 2
+R4
+R12
+Z25 !s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv|
+Z26 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+Xdatapath_sv_unit
+R1
+R8
+VZ;Piol:fNO5F>nlGl=eIo3
+r1
+!s85 0
+31
+!i10b 1
+!s100 K6UQMaj:TFMI@=fTFQmZ60
+IZ;Piol:fNO5F>nlGl=eIo3
+!i103 1
+S1
+R0
+R22
+R23
+R24
+L0 1
+R4
+R12
+R25
+R26
+!s101 -O0
+!i113 1
+R6
+R7
+Xdefinitions
+R1
+R2
+!i10b 1
+!s100 Q=WEonC4oW_a<DHR6B3Yo3
+I@oz2JjLn6BIU]EmRBP3k30
+V@oz2JjLn6BIU]EmRBP3k30
+S1
+R0
+w1589942051
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/definitions.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/definitions.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/definitions.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/definitions.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+vIF
+R1
+R2
+!i10b 1
+!s100 ca4Eo?_h1<=:a=do87c^R0
+Ihb?ikGPVEFF3G9S_EBB7B0
+R3
+!s105 IF_sv_unit
+S1
+R0
+w1589941894
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/IF.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/IF.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/IF.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/IF.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+n@i@f
+vInstROM
+R1
+Z27 !s110 1589951300
+!i10b 1
+!s100 >E<[W2>F`6omcN@7COiOF0
+IY=dK3OemA<VJ;o^G`QkW]3
+R3
+!s105 InstROM_sv_unit
+S1
+R0
+R15
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv
+L0 11
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+n@inst@r@o@m
+vreg_file
+R1
+R2
+!i10b 1
+!s100 _abTejZmHBRlhC3l=Z`i<3
+IQ:l0X0Pmg>g8;G<Q7aU;11
+R3
+!s105 reg_file_sv_unit
+S1
+R0
+R21
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/reg_file.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/reg_file.sv
+L0 7
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/reg_file.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/reg_file.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+vREL_LUT
+R1
+R2
+!i10b 1
+!s100 nRiaGDJ1i26IC2Y83dkm22
+In<8S9h[ZUEoG_88883Co^3
+R3
+!s105 REL_LUT_sv_unit
+S1
+R0
+w1589947134
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/REL_LUT.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/REL_LUT.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/REL_LUT.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/REL_LUT.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+n@r@e@l_@l@u@t
+vsimple_tb
+R1
+!s110 1589951335
+!i10b 1
+!s100 93iL>[n3C13gRDcE[ADcb2
+IR0gbMQP7;ka7QF9M3Q3hK2
+R3
+!s105 simple_tb_sv_unit
+S1
+R0
+w1589946363
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simple_tb.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simple_tb.sv
+L0 8
+R4
+r1
+!s85 0
+31
+!s108 1589951335.000000
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simple_tb.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simple_tb.sv|
+!s101 -O0
+!i113 1
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vtoplevel
+R1
+R27
+!i10b 1
+!s100 BUn@bzmC]32KYGCIdFV<c0
+I:=``ZnIo7R7RZon_K8l5A1
+R3
+!s105 toplevel_sv_unit
+S1
+R0
+R21
+8C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv
+FC:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor|C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv|
+!s101 -O0
+!i113 1
+R6
+R7

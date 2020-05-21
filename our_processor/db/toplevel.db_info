@@ -1,3 +1,7 @@
 Quartus_Version = Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Version_Index = 503488000
+<<<<<<< HEAD:our_processor/db/toplevel.db_info
 Creation_Time = Wed May 20 15:35:54 2020
+=======
+Creation_Time = Tue May 19 20:28:15 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/db/toplevel.db_info

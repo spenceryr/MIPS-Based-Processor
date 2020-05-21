@@ -1,5 +1,9 @@
 Timing Analyzer report for toplevel
+<<<<<<< HEAD:our_processor/output_files/toplevel.sta.rpt
 Wed May 20 17:50:22 2020
+=======
+Tue May 19 22:07:57 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.sta.rpt
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -333,7 +337,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+<<<<<<< HEAD:our_processor/output_files/toplevel.sta.rpt
     Info: Processing started: Wed May 20 17:50:20 2020
+=======
+    Info: Processing started: Tue May 19 22:07:56 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.sta.rpt
 Info: Command: quartus_sta cpu -c toplevel
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -381,9 +389,15 @@ Info (332140): No Minimum Pulse Width paths to report
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+<<<<<<< HEAD:our_processor/output_files/toplevel.sta.rpt
     Info: Peak virtual memory: 4850 megabytes
     Info: Processing ended: Wed May 20 17:50:22 2020
     Info: Elapsed time: 00:00:02
+=======
+    Info: Peak virtual memory: 4851 megabytes
+    Info: Processing ended: Tue May 19 22:07:57 2020
+    Info: Elapsed time: 00:00:01
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.sta.rpt
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -1,5 +1,9 @@
 Analysis & Synthesis report for toplevel
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
 Wed May 20 17:50:13 2020
+=======
+Tue May 19 22:07:48 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -54,7 +58,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
 ; Analysis & Synthesis Status        ; Successful - Wed May 20 17:50:13 2020       ;
+=======
+; Analysis & Synthesis Status        ; Successful - Tue May 19 22:07:48 2020       ;
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; toplevel                                    ;
 ; Top-level Entity Name              ; toplevel                                    ;
@@ -234,6 +242,7 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
 +-------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                        ;
 +--------------------------------------------+----------------------------------------------+
@@ -557,6 +566,335 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                         ; due to stuck port data_in ;                                                                                     ;
 ; datapath:dp|reg_file:rf|registers[0][0] ; Lost Fanouts              ; datapath:dp|ALU_FLAGS:af|OUT_S_OUT                                                  ;
 +-----------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+=======
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++--------------------------------------------+-----------------------------------------------------+
+; Register name                              ; Reason for Removal                                  ;
++--------------------------------------------+-----------------------------------------------------+
+; datapath:dp|data_mem:dm|core[254][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[255][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[253][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[252][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[251][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[250][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[249][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[248][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[247][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[246][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[245][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[244][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[243][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[242][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[241][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[240][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[239][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[238][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[237][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[236][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[235][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[234][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[233][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[232][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[231][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[230][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[229][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[228][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[227][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[226][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[225][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[224][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[223][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[222][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[221][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[220][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[219][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[218][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[217][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[216][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[215][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[214][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[213][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[212][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[211][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[210][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[209][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[208][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[207][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[206][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[205][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[204][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[203][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[202][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[201][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[200][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[199][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[198][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[197][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[196][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[195][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[194][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[193][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[192][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[191][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[190][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[189][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[188][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[187][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[186][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[185][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[184][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[183][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[182][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[181][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[180][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[179][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[178][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[177][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[176][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[175][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[174][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[173][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[172][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[171][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[170][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[169][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[168][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[167][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[166][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[165][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[164][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[163][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[162][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[161][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[160][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[159][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[158][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[157][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[156][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[155][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[154][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[153][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[152][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[151][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[150][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[149][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[148][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[147][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[146][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[145][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[144][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[143][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[142][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[141][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[140][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[139][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[138][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[137][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[136][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[135][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[134][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[133][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[132][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[131][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[130][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[129][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[128][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[127][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[126][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[125][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[124][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[123][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[122][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[121][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[120][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[119][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[118][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[117][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[116][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[115][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[114][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[113][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[112][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[111][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[110][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[109][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[108][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[107][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[106][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[105][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[104][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[103][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[102][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[101][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[100][0]       ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[99][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[98][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[97][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[96][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[95][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[94][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[93][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[92][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[91][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[90][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[89][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[88][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[87][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[86][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[85][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[84][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[83][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[82][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[81][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[80][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[79][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[78][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[77][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[76][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[75][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[74][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[73][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[72][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[71][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[70][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[69][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[68][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[67][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[66][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[65][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[64][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[63][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[62][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[61][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[60][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[59][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[58][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[57][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[56][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[55][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[54][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[53][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[52][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[51][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[50][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[49][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[48][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[47][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[46][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[45][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[44][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[43][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[42][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[41][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[40][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[39][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[38][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[37][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[36][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[35][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[34][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[33][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[32][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[31][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[30][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[29][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[28][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[27][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[26][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[25][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[24][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[23][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[22][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[21][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[20][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[19][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[18][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[17][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[16][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[15][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[14][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[13][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[12][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[11][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[10][0]        ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[9][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[8][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[7][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[6][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[5][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[4][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[3][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[2][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[1][0]         ; Lost fanout                                         ;
+; datapath:dp|data_mem:dm|core[0][0]         ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[3][5]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][6]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][1]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][7]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][3]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][3]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][4]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][7]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][7]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][6]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][0]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][2]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][4]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][6]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][0]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][4]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][2]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][5]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][2]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[3][0]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[1][1]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][5]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|reg_file:rf|registers[2][1]    ; Merged with datapath:dp|reg_file:rf|registers[1][3] ;
+; datapath:dp|IF:infet|PC_INIT[2,3,5]        ; Merged with datapath:dp|IF:infet|DONE               ;
+; datapath:dp|IF:infet|PC_INIT[8]            ; Merged with datapath:dp|IF:infet|PC_INIT[0]         ;
+; datapath:dp|IF:infet|PC_INIT[1,7,9,11..15] ; Merged with datapath:dp|IF:infet|PC_INIT[10]        ;
+; datapath:dp|IF:infet|PC_INIT[6]            ; Merged with datapath:dp|IF:infet|PC_INIT[4]         ;
+; datapath:dp|reg_file:rf|registers[1][3]    ; Stuck at GND due to stuck port data_in              ;
+; datapath:dp|IF:infet|PC_INIT[10]           ; Stuck at GND due to stuck port data_in              ;
+; datapath:dp|ALU_FLAGS:af|OUT_ALU_ZERO      ; Lost fanout                                         ;
+; datapath:dp|ALU_FLAGS:af|OUT_S_OUT         ; Stuck at GND due to stuck port data_in              ;
+; datapath:dp|reg_file:rf|registers[0][0]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][1]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][2]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][3]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][4]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][5]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][6]    ; Lost fanout                                         ;
+; datapath:dp|reg_file:rf|registers[0][7]    ; Lost fanout                                         ;
+; datapath:dp|IF:infet|DONE                  ; Stuck at VCC due to stuck port data_in              ;
+; datapath:dp|IF:infet|PC[0..15]             ; Lost fanout                                         ;
+; datapath:dp|IF:infet|PC_INIT[0,4]          ; Lost fanout                                         ;
+; Total Number of Removed Registers = 323    ;                                                     ;
++--------------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                               ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+; datapath:dp|IF:infet|PC_INIT[10]        ; Stuck at GND              ; datapath:dp|ALU_FLAGS:af|OUT_ALU_ZERO, datapath:dp|IF:infet|PC[1],                   ;
+;                                         ; due to stuck port data_in ; datapath:dp|IF:infet|PC[2], datapath:dp|IF:infet|PC[3], datapath:dp|IF:infet|PC[4],  ;
+;                                         ;                           ; datapath:dp|IF:infet|PC[5], datapath:dp|IF:infet|PC[6], datapath:dp|IF:infet|PC[7],  ;
+;                                         ;                           ; datapath:dp|IF:infet|PC[8], datapath:dp|IF:infet|PC[9], datapath:dp|IF:infet|PC[10], ;
+;                                         ;                           ; datapath:dp|IF:infet|PC[11], datapath:dp|IF:infet|PC[12],                            ;
+;                                         ;                           ; datapath:dp|IF:infet|PC[13], datapath:dp|IF:infet|PC[14],                            ;
+;                                         ;                           ; datapath:dp|IF:infet|PC[15], datapath:dp|IF:infet|PC_INIT[4]                         ;
+; datapath:dp|ALU_FLAGS:af|OUT_S_OUT      ; Stuck at GND              ; datapath:dp|reg_file:rf|registers[0][2], datapath:dp|reg_file:rf|registers[0][3],    ;
+;                                         ; due to stuck port data_in ; datapath:dp|reg_file:rf|registers[0][4], datapath:dp|reg_file:rf|registers[0][5],    ;
+;                                         ;                           ; datapath:dp|reg_file:rf|registers[0][6], datapath:dp|reg_file:rf|registers[0][7]     ;
+; datapath:dp|reg_file:rf|registers[1][3] ; Stuck at GND              ; datapath:dp|reg_file:rf|registers[0][0], datapath:dp|reg_file:rf|registers[0][1]     ;
+;                                         ; due to stuck port data_in ;                                                                                      ;
+; datapath:dp|IF:infet|DONE               ; Stuck at VCC              ; datapath:dp|IF:infet|PC[0], datapath:dp|IF:infet|PC_INIT[0]                          ;
+;                                         ; due to stuck port data_in ;                                                                                      ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 
 
 +------------------------------------------------------+
@@ -638,6 +976,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 
 
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "datapath:dp|reg_file:rf"                                                                                                                                                               ;
 +-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -646,6 +985,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; reset     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; reset[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
 +-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+=======
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|reg_file:rf"                                                                                                                     ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; waddr ; Input ; Info     ; Stuck at GND                                                                                                                                 ;
+; reset ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -687,7 +1036,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
     Info: Processing started: Wed May 20 17:50:03 2020
+=======
+    Info: Processing started: Tue May 19 22:07:38 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c toplevel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -714,6 +1067,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file alu_fla
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
     Info (12023): Found entity 1: ALU File: C:/141L-Lab-2/our_processor/ALU.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file abs_lut.sv
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
     Info (12023): Found entity 1: ABS_LUT File: C:/141L-Lab-2/our_processor/ABS_LUT.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file simple_tb.sv
     Info (12023): Found entity 1: simple_tb File: C:/141L-Lab-2/our_processor/simple_tb.sv Line: 8
@@ -743,6 +1097,37 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DONE" is stuck at VCC File: C:/141L-Lab-2/our_processor/toplevel.sv Line: 5
 Info (17049): 308 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/141L-Lab-2/our_processor/output_files/toplevel.map.smsg
+=======
+    Info (12023): Found entity 1: ABS_LUT File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ABS_LUT.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file simple_tb.sv
+    Info (12023): Found entity 1: simple_tb File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/simple_tb.sv Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(96): created implicit net for "mem_data_out" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 96
+Info (12127): Elaborating entity "toplevel" for the top level hierarchy
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv Line: 22
+Info (12128): Elaborating entity "ALU_FLAGS" for hierarchy "datapath:dp|ALU_FLAGS:af" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 41
+Info (12128): Elaborating entity "REL_LUT" for hierarchy "datapath:dp|REL_LUT:r_lut" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 43
+Info (12128): Elaborating entity "ABS_LUT" for hierarchy "datapath:dp|ABS_LUT:a_lut" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 44
+Info (12128): Elaborating entity "IF" for hierarchy "datapath:dp|IF:infet" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 60
+Warning (10230): Verilog HDL assignment warning at IF.sv(33): truncated value with size 32 to match size of target (16) File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/IF.sv Line: 33
+Info (12128): Elaborating entity "InstROM" for hierarchy "datapath:dp|InstROM:ir" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 62
+Warning (10850): Verilog HDL warning at InstROM.sv(21): number of words (0) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv Line: 21
+Warning (10030): Net "inst_rom.data_a" at InstROM.sv(17) has no driver or initial value, using a default initial value '0' File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv Line: 17
+Warning (10030): Net "inst_rom.waddr_a" at InstROM.sv(17) has no driver or initial value, using a default initial value '0' File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv Line: 17
+Warning (10030): Net "inst_rom.we_a" at InstROM.sv(17) has no driver or initial value, using a default initial value '0' File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/InstROM.sv Line: 17
+Info (12128): Elaborating entity "reg_file" for hierarchy "datapath:dp|reg_file:rf" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 72
+Info (12128): Elaborating entity "ALU" for hierarchy "datapath:dp|ALU:alu" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 88
+Warning (10036): Verilog HDL or VHDL warning at ALU.sv(21): object "op_mnemonic" assigned a value but never read File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/ALU.sv Line: 21
+Info (12128): Elaborating entity "data_mem" for hierarchy "datapath:dp|data_mem:dm" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/datapath.sv Line: 96
+Warning (10230): Verilog HDL assignment warning at data_mem.sv(22): truncated value with size 32 to match size of target (8) File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/data_mem.sv Line: 22
+Info (12128): Elaborating entity "controlpath" for hierarchy "controlpath:cp" File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv Line: 25
+Warning (10034): Output port "CTRL_mem_to_reg" at controlpath.sv(10) has no driver File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/controlpath.sv Line: 10
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/db/toplevel.ram0_InstROM_b8485114.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DONE" is stuck at VCC File: C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/toplevel.sv Line: 5
+Info (17049): 283 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Sammy Gill/Desktop/141L-Lab-2/our processor/output_files/toplevel.map.smsg
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -752,10 +1137,17 @@ Info (21057): Implemented 3 device resources after synthesis - the final resourc
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 1 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+<<<<<<< HEAD:our_processor/output_files/toplevel.map.rpt
     Info: Peak virtual memory: 4755 megabytes
     Info: Processing ended: Wed May 20 17:50:13 2020
     Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:19
+=======
+    Info: Peak virtual memory: 4753 megabytes
+    Info: Processing ended: Tue May 19 22:07:48 2020
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.map.rpt
 
 
 +------------------------------------------+

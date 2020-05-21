@@ -1,5 +1,9 @@
 Flow report for toplevel
+<<<<<<< HEAD:our_processor/output_files/toplevel.flow.rpt
 Wed May 20 17:50:23 2020
+=======
+Tue May 19 22:07:59 2020
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.flow.rpt
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,7 +45,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
+<<<<<<< HEAD:our_processor/output_files/toplevel.flow.rpt
 ; Flow Status                        ; Successful - Wed May 20 17:50:23 2020       ;
+=======
+; Flow Status                        ; Successful - Tue May 19 22:07:59 2020       ;
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.flow.rpt
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; toplevel                                    ;
 ; Top-level Entity Name              ; toplevel                                    ;
@@ -65,7 +73,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
+<<<<<<< HEAD:our_processor/output_files/toplevel.flow.rpt
 ; Start date & time ; 05/20/2020 17:50:04 ;
+=======
+; Start date & time ; 05/19/2020 22:07:39 ;
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.flow.rpt
 ; Main task         ; Compilation         ;
 ; Revision Name     ; toplevel            ;
 +-------------------+---------------------+
@@ -76,7 +88,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
+<<<<<<< HEAD:our_processor/output_files/toplevel.flow.rpt
 ; COMPILER_SIGNATURE_ID               ; 91755984309.159002220413980            ; --            ; --          ; --                                ;
+=======
+; COMPILER_SIGNATURE_ID               ; 929353139688.158995125916580           ; --            ; --          ; --                                ;
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.flow.rpt
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -96,12 +112,21 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
+<<<<<<< HEAD:our_processor/output_files/toplevel.flow.rpt
 ; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4742 MB             ; 00:00:19                           ;
 ; Fitter               ; 00:00:03     ; 1.0                     ; 6084 MB             ; 00:00:05                           ;
 ; Assembler            ; 00:00:01     ; 1.0                     ; 4686 MB             ; 00:00:01                           ;
 ; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4850 MB             ; 00:00:02                           ;
 ; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4643 MB             ; 00:00:01                           ;
 ; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:28                           ;
+=======
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4739 MB             ; 00:00:22                           ;
+; Fitter               ; 00:00:04     ; 1.0                     ; 6081 MB             ; 00:00:05                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4686 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4851 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4643 MB             ; 00:00:01                           ;
+; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:31                           ;
+>>>>>>> c21951f9201d9c641aa52584307341befd7b038e:our processor/output_files/toplevel.flow.rpt
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
