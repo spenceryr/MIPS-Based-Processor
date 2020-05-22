@@ -1,7 +1,7 @@
 //This file defines the parameters used in the alu
 // CSE141L
 package definitions;
-    
+
 // Instruction map
     const logic [2:0]kADD  = 3'b000;
     const logic [2:0]kSUB  = 3'b001;
@@ -11,13 +11,13 @@ package definitions;
 	const logic [2:0]kOR   = 3'b101;
 	const logic [2:0]kXOR  = 3'b110;
     const logic [2:0]kPASS = 3'b111;
-    
+
     const logic [2:0]REG_A = 3'b000;
     const logic [2:0]REG_B = 3'b001;
     const logic [2:0]REG_C = 3'b010;
     const logic [2:0]REG_D = 3'b011;
-    const logic [2:0]REG_M = 3'b100;
-    
+    const logic [2:0]REG_PC = 3'b100;
+
     const logic [4:0]cADDR  = 5'b00000; //000100000kADD
     const logic [4:0]cSUBR  = 5'b00001; //000100100kSUB
     const logic [4:0]cADDI  = 5'b0001?; //000101000kADD
@@ -42,5 +42,5 @@ package definitions;
         OR, XOR, PASS} op_mne;
 // note: kADD is of type logic[2:0] (3-bit binary)
 //   ADD is of type enum -- equiv., but watch casting
-//   see ALU.sv for how to handle this   
+//   see ALU.sv for how to handle this
 endpackage // definitions

@@ -91,7 +91,7 @@ InstROM ir (.InstAddress(PC), .InstOut(instr_out));
 
 always_comb
     if (CTRL_reg_sel)
-        reg_a_in = 'd4;
+        reg_a_in = REG_PC;
     else
         reg_a_in = instr_out[4:3];
 
@@ -132,7 +132,7 @@ always_comb
     if (CTRL_mem_to_reg)
         reg_write_data = mem_data_out;
     else if (CTRL_reg_sel & CTRL_reg_write_en)
-        reg_write_data = instr_out[4:0];
+        reg_write_data = {3'b0, instr_out[4:0]};
     else
         reg_write_data = ALU_out;
 
