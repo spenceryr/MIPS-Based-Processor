@@ -5,11 +5,13 @@ module toplevel (
 );
 
 logic RESET,
-      HALT,
+      //HALT,
       CTRL_branch_rel_nz,
       CTRL_branch_rel_z,
       CTRL_branch_abs,
       CTRL_reg_write_en,
+      CTRL_reg_sel,
+      CTRL_lut_in,
       CTRL_mem_to_reg,
       CTRL_alu_src,
       CTRL_alu_sc_in,

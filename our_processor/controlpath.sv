@@ -7,6 +7,8 @@ module controlpath (
                  CTRL_branch_rel_z, //
                  CTRL_branch_abs, //
                  CTRL_reg_write_en, //
+                 CTRL_reg_sel,
+                 CTRL_lut_in,
                  CTRL_mem_to_reg, //
                  CTRL_alu_src, //
                  CTRL_alu_sc_in, //
@@ -14,6 +16,33 @@ module controlpath (
                  CTRL_write_mem, //
     output logic [2:0] CTRL_alu_op
 );
+
+always_comb
+    if (DONE)
+        CTRL_mem_to_reg = '0;
+    else
+        casez({opcode, fcode})
+        cLOAD  : CTRL_mem_to_reg = '1;
+        default: CTRL_mem_to_reg = '0;
+        endcase
+
+always_comb
+    if (DONE)
+        CTRL_reg_sel = '0;
+    else
+        casez({opcode, fcode})
+        cCALL, cRET: CTRL_reg_sel = '1;
+        default    : CTRL_reg_sel = '0;
+        endcase
+
+always_comb
+    if (DONE)
+        CTRL_lut_in = '0;
+    else
+        casez({opcode, fcode})
+        cRET   : CTRL_lut_in = '1;
+        default: CTRL_lut_in = '0;
+        endcase
 
 always_comb
     if (DONE)
@@ -43,7 +72,8 @@ always_comb
         casez({opcode, fcode})
         cADDR, cSUBR, cADDI, cSUBI,
         cSHR, cSHL, cAND, cOR,
-        cANDI, cXOR, cLOAD, cMOV: CTRL_reg_write_en = 1'b1;
+        cANDI, cXOR, cLOAD, cMOV,
+        cCALL                   : CTRL_reg_write_en = 1'b1;
         default                 : CTRL_reg_write_en = 1'b0;
 endcase
 

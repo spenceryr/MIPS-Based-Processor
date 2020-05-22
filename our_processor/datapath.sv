@@ -6,6 +6,8 @@ module datapath(
           CTRL_branch_rel_z,
           CTRL_branch_abs,
           CTRL_reg_write_en,
+          CTRL_reg_sel,
+          CTRL_lut_in,
           CTRL_mem_to_reg,
           CTRL_alu_src,
           CTRL_alu_sc_in,
@@ -23,9 +25,14 @@ logic [15:0] PC, PC_target;
 logic ALU_zero, ALU_c_out, ALU_s_out;
 logic F_ZERO, F_C_OUT, F_S_OUT;
 logic [8:0] instr_out;
+logic [7:0] mem_data_out;
 logic [7:0] reg_write_data;
+logic [7:0] reg_a_in;
 logic [7:0] reg_a_out, reg_b_out;
-logic [15:0] rel_lut_out, abs_lut_out;
+logic [15:0] rel_lut_out, abs_lut_out,
+             rel_lut_out1, abs_lut_out1, rel_lut_out2, abs_lut_out2;
+logic [3:0] lut_in;
+logic lut_sel;
 
 assign opcode = instr_out[8:5];
 assign fcode = instr_out[0];
@@ -40,16 +47,37 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .OUT_C_OUT(F_C_OUT),
               .OUT_S_OUT(F_S_OUT));
 
-REL_LUT r_lut (.in(instr_out[4:0]), .out(rel_lut_out));
-ABS_LUT a_lut (.in(instr_out[4:0]), .out(abs_lut_out));
+REL_LUT r1_lut (.in(lut_in), .out(rel_lut_out1));
+ABS_LUT a1_lut (.in(lut_in), .out(abs_lut_out1));
+REL_LUT r2_lut (.in(lut_in), .out(rel_lut_out2));
+ABS_LUT a2_lut (.in(lut_in), .out(abs_lut_out2));
+
+always_comb
+    if (lut_sel) begin
+        rel_lut_out = rel_lut_out2;
+        abs_lut_out = abs_lut_out2;
+    end
+    else begin
+        rel_lut_out = rel_lut_out2;
+        abs_lut_out = abs_lut_out2;
+    end
+
+always_comb
+    if (CTRL_lut_in)
+        {lut_in, lut_sel} = reg_a_out[4:0];
+    else
+        {lut_in, lut_sel} = instr_out[4:0];
+
 
 always_comb
     if (CTRL_branch_rel_nz | CTRL_branch_rel_z)
         PC_target = rel_lut_out;
+    else if (CTRL_reg_sel & CTRL_reg_write_en)
+        PC_target = 'd5; // TODO: REPLACE WITH PC LOCATION FOR FUNCTION
     else
         PC_target = abs_lut_out;
 
-IF infet (.Branch_abs(CTRL_branch_abs),	   
+IF infet (.Branch_abs(CTRL_branch_abs),
   .Branch_rel_z(CTRL_branch_rel_z),
   .Branch_rel_nz(CTRL_branch_rel_nz),
   .ALU_zero(F_ZERO),
@@ -61,13 +89,18 @@ IF infet (.Branch_abs(CTRL_branch_abs),
 
 InstROM ir (.InstAddress(PC), .InstOut(instr_out));
 
+always_comb
+    if (CTRL_reg_sel)
+        reg_a_in = 'd4;
+    else
+        reg_a_in = instr_out[4:3];
 
 reg_file rf (.CLK(CLK),
 				 .reset(START),
              .write_en(CTRL_reg_write_en),
-             .raddrA(instr_out[4:3]),
+             .raddrA(reg_a_in),
              .raddrB(instr_out[2:1]),
-             .waddr(instr_out[4:3]),
+             .waddr(reg_a_in),
              .data_in(reg_write_data),
              .data_outA(reg_a_out),
              .data_outB(reg_b_out));
@@ -87,7 +120,7 @@ ALU alu (.INPUTA(reg_a_out),
          .C_OUT(ALU_c_out),
          .S_OUT(ALU_s_out),
          .ZERO(ALU_zero));
-         
+
 data_mem dm (.CLK(CLK),
              .DataAddress(reg_b_out),
              .ReadMem(CTRL_read_mem),
@@ -98,11 +131,10 @@ data_mem dm (.CLK(CLK),
 always_comb
     if (CTRL_mem_to_reg)
         reg_write_data = mem_data_out;
+    else if (CTRL_reg_sel & CTRL_reg_write_en)
+        reg_write_data = instr_out[4:0];
     else
         reg_write_data = ALU_out;
-  
-  
+
+
 endmodule
-  
-  
-  

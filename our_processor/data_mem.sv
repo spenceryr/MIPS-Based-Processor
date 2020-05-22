@@ -17,7 +17,8 @@ module data_mem(
     if(ReadMem) begin
       DataOut = core[DataAddress];
 	  $display("Memory read M[%d] = %d",DataAddress,DataOut);
-    end else 
+    end
+    else
       DataOut = 'bZ;           // tristate, undriven
 
   always_ff @ (posedge CLK)		 // writes are sequential
