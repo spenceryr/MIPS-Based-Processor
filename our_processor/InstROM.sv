@@ -24,7 +24,7 @@ module InstROM #(parameter A=16, W=9) (
 		$display("instOut %d", InstOut);
 	end
   initial begin		                  // load from external text file
-  	$readmemb("C:\\141L-Lab-2\\our_processor\\simple_test.txt",inst_rom);
+  	$readmemb("C:\\141L-Lab-2\\our_processor\\branch_test.txt",inst_rom);
   end 
   
 endmodule

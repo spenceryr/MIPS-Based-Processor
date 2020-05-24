@@ -19,29 +19,29 @@ module controlpath (
 
 always_comb
     if (DONE)
-        CTRL_mem_to_reg = '0;
+        CTRL_mem_to_reg = 1'b0;
     else
         casez({opcode, fcode})
-        cLOAD  : CTRL_mem_to_reg = '1;
-        default: CTRL_mem_to_reg = '0;
+        cLOAD  : CTRL_mem_to_reg = 1'b1;
+        default: CTRL_mem_to_reg = 1'b0;
         endcase
 
 always_comb
     if (DONE)
-        CTRL_reg_sel = '0;
+        CTRL_reg_sel = 1'b0;
     else
         casez({opcode, fcode})
-        cCALL, cRET: CTRL_reg_sel = '1;
-        default    : CTRL_reg_sel = '0;
+        cCALL, cRET: CTRL_reg_sel = 1'b1;
+        default    : CTRL_reg_sel = 1'b0;
         endcase
 
 always_comb
     if (DONE)
-        CTRL_lut_in = '0;
+        CTRL_lut_in = 1'b0;
     else
         casez({opcode, fcode})
-        cRET   : CTRL_lut_in = '1;
-        default: CTRL_lut_in = '0;
+        cRET   : CTRL_lut_in = 1'b1;
+        default: CTRL_lut_in = 1'b0;
         endcase
 
 always_comb

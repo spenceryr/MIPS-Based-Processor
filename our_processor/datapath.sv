@@ -53,14 +53,8 @@ REL_LUT r2_lut (.in(lut_in), .out(rel_lut_out2));
 ABS_LUT a2_lut (.in(lut_in), .out(abs_lut_out2));
 
 always_comb
-    if (lut_sel) begin
-        rel_lut_out = rel_lut_out2;
-        abs_lut_out = abs_lut_out2;
-    end
-    else begin
-        rel_lut_out = rel_lut_out2;
-        abs_lut_out = abs_lut_out2;
-    end
+    rel_lut_out = rel_lut_out1;
+    abs_lut_out = abs_lut_out1;
 
 always_comb
     if (CTRL_lut_in)
@@ -93,13 +87,14 @@ always_comb
     if (CTRL_reg_sel)
         reg_a_in = REG_PC;
     else
-        reg_a_in = instr_out[4:3];
+        reg_a_in = {1'b0, instr_out[4:3]};
+
 
 reg_file rf (.CLK(CLK),
 				 .reset(START),
              .write_en(CTRL_reg_write_en),
              .raddrA(reg_a_in),
-             .raddrB(instr_out[2:1]),
+             .raddrB({1'b0, instr_out[2:1]}),
              .waddr(reg_a_in),
              .data_in(reg_write_data),
              .data_outA(reg_a_out),

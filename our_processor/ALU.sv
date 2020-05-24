@@ -35,7 +35,7 @@ module ALU(
     kADD : {S_OUT, C_OUT, OUT} = {1'b0, {1'b0,INPUTA} + INPUTB + C_IN};  // add w/ carry-in & out
     kSUB : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA + (~INPUTB) + C_IN};
     kSHL :  if (SH_1)
-                {C_OUT, S_OUT, OUT} = {1'b0, INPUTA[0], INPUTA[6:0], S_IN};
+                {C_OUT, S_OUT, OUT} = {1'b0, INPUTA[7], INPUTA[6:0], S_IN};
             else
                 {C_OUT, S_OUT, OUT} = {1'b0, 1'b0, INPUTA << INPUTB};
     kSHR :  if (SH_1)
@@ -45,7 +45,7 @@ module ALU(
     kXOR : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA^INPUTB};
     kAND : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA&INPUTB};
     kOR  : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA|INPUTB};
-    kPASS : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTA};
+    kPASS : {S_OUT, C_OUT, OUT} = {1'b0, 1'b0, INPUTB};
     default: {C_OUT,OUT} = 'b0;						       // no-op, zero out
     endcase
     

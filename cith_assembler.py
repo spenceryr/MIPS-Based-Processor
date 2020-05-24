@@ -10,7 +10,7 @@ INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": 
                 "jmp": (10, ("l",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
                 "move": (12, ("r", "r"), 0), "call": (13, ("l",), -1), "ret": (14, ("l",), -1)}
 
-LUT_VALS = {"calculate_parity": 0, "loop2_init": 1, "loop1": 2, "loop2": 3, "main": 4, "done": 5}
+LUT_VALS = {"prepare": 0, "loop": 1, "is_zero": 2, "is_one": 3, "check": 4, "skip_this": 5, "done": 6 }
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
 
@@ -127,7 +127,7 @@ def main():
     if out_file:
         with open(out_file, 'w') as f:
             for i in instrs:
-                f.write(i)
+                f.write(i + "\n")
     else:
         for i in instrs:
             print(i)

@@ -31,6 +31,6 @@ module IF(
       PC <= Target + PC;
 
 	else
-	  PC <= PC+'1;		      // default increment (no need for ARM/MIPS +4 -- why?)
+	  PC <= PC+'d1;		      // default increment (no need for ARM/MIPS +4 -- why?)
 
 endmodule
