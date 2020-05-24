@@ -47,10 +47,22 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .OUT_C_OUT(F_C_OUT),
               .OUT_S_OUT(F_S_OUT));
 
-REL_LUT r1_lut (.in(lut_in), .out(rel_lut_out1));
-ABS_LUT a1_lut (.in(lut_in), .out(abs_lut_out1));
-REL_LUT r2_lut (.in(lut_in), .out(rel_lut_out2));
-ABS_LUT a2_lut (.in(lut_in), .out(abs_lut_out2));
+REL_LUT #(c0=0, c1=0, c2=0, c3=0,
+          c4=0, c5=0, c6=0, c7=0,
+          c8=0, c9=0, c10=0, c11=0,
+          c12=0, c13=0, c14=0, c15=0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
+REL_LUT #(c0=0, c1=0, c2=0, c3=0,
+          c4=0, c5=0, c6=0, c7=0,
+          c8=0, c9=0, c10=0, c11=0,
+          c12=0, c13=0, c14=0, c15=0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
+ABS_LUT #(c0=0, c1=0, c2=0, c3=0,
+          c4=0, c5=0, c6=0, c7=0,
+          c8=0, c9=0, c10=0, c11=0,
+          c12=0, c13=0, c14=0, c15=0)) a1_lut (.in(lut_in), .out(abs_lut_out1));
+ABS_LUT #(c0=0, c1=0, c2=0, c3=0,
+          c4=0, c5=0, c6=0, c7=0,
+          c8=0, c9=0, c10=0, c11=0,
+          c12=0, c13=0, c14=0, c15=0)) a2_lut (.in(lut_in), .out(abs_lut_out2));
 
 always_comb
     if (lut_sel) begin
