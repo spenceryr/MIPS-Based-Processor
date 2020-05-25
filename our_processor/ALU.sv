@@ -53,8 +53,9 @@ module ALU(
       'b0     : ZERO = 1'b1;
       default : ZERO = 1'b0;
     endcase
-    $display("INPUTA: %d | INPUTB: %d | ALU Out %d \n",INPUTA, INPUTB, OUT);
-    op_mnemonic = op_mne'(OP);					  // displays operation name in waveform viewer
+	 op_mnemonic = op_mne'(OP);					  // displays operation name in waveform viewer
+    $display("%s %d %d = %d \n", op_mnemonic, INPUTA, INPUTB, OUT);
+    
   end        			  // note [0] -- look at LSB only
 //    OP == 3'b101; //!INPUTB[0];               
 // always_comb	branch_enable = opcode[8:6]==3'b101? 1 : 0;  

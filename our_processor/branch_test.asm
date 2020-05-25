@@ -4,7 +4,7 @@
 
 # prepare memory
 # this label should have no effect
-prepare: addi $r1, 1
+prepare: addi $r1, 1 # 0
   store $r1, $r4 # [0] = 1
   addi $r4, 1
   store $r1, $r4 # [1] = 1
@@ -16,18 +16,18 @@ prepare: addi $r1, 1
   subr $r1, $r1
   subr $r4, $r4
 
-loop: load $r3, $r4
+loop: load $r3, $r4 # 11
   subi $r3, 0
   beqz is_zero
   jmp is_one
   addi $r1, 7
   addi $r1, 7
   
-is_zero: addi $r1, 1
+is_zero: addi $r1, 1 # 17
   jmp check
-is_one: addi $r2, 1
+is_one: addi $r2, 1 # 19
 
-check: addi $r4, 1
+check: addi $r4, 1 # 20
   move $r3, $r4
   subi $r3, 7
   subi $r3, 1

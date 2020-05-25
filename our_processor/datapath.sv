@@ -47,7 +47,8 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .OUT_C_OUT(F_C_OUT),
               .OUT_S_OUT(F_S_OUT));
 
-LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
+// rel LUTs
+LUT_16 #(.c0(0), .c1(4), .c2(0), .c3(5),
          .c4(0), .c5(0), .c6(0), .c7(0),
          .c8(0), .c9(0), .c10(0), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
@@ -55,18 +56,26 @@ LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
          .c4(0), .c5(0), .c6(0), .c7(0),
          .c8(0), .c9(0), .c10(0), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
-LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) a1_lut (.in(lut_in), .out(abs_lut_out1));
-LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) a2_lut (.in(lut_in), .out(abs_lut_out2));
+			
+// abs LUTs
+LUT_16 #(.c0(0), .c1(21), .c2(31), .c3(36),
+         .c4(4), .c5(5), .c6(6), .c7(7),
+         .c8(8), .c9(9), .c10(10), .c11(11),
+         .c12(12), .c13(13), .c14(14), .c15(15)) a1_lut (.in(lut_in), .out(abs_lut_out1));
+LUT_16 #(.c0(16), .c1(26), .c2(2), .c3(3),
+         .c4(4), .c5(5), .c6(6), .c7(7),
+         .c8(8), .c9(9), .c10(10), .c11(11),
+         .c12(12), .c13(13), .c14(14), .c15(15)) a2_lut (.in(lut_in), .out(abs_lut_out2));
 
 always_comb
-    rel_lut_out = rel_lut_out1;
-    abs_lut_out = abs_lut_out1;
+    if (lut_sel) begin
+        rel_lut_out = rel_lut_out2;
+        abs_lut_out = abs_lut_out2;
+    end
+    else begin
+        rel_lut_out = rel_lut_out1;
+        abs_lut_out = abs_lut_out1;
+    end
 
 always_comb
     if (CTRL_lut_in)
@@ -79,7 +88,7 @@ always_comb
     if (CTRL_branch_rel_nz | CTRL_branch_rel_z)
         PC_target = rel_lut_out;
     else if (CTRL_reg_sel & CTRL_reg_write_en)
-        PC_target = 'd5; // TODO: REPLACE WITH PC LOCATION FOR FUNCTION
+        PC_target = 'd32; // TODO: REPLACE WITH PC LOCATION FOR FUNCTION
     else
         PC_target = abs_lut_out;
 

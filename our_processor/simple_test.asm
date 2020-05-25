@@ -1,5 +1,7 @@
 # r4 will be used to hold mem address
 
+addi $r1, 7
+subr $r1, $r1
 
 # simple arithmetic 
 addi $r1, 5

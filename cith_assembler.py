@@ -8,9 +8,9 @@ INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": 
                 "and": (5, ("r", "r"), 0), "or": (5, ("r", "r"), 1), "andi": (6, ("r", "i3"), -1),
                 "xor": (7, ("r", "r"), 0), "beqz": (8, ("l",), -1), "bneqz": (9, ("l",), -1),
                 "jmp": (10, ("l",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
-                "move": (12, ("r", "r"), 0), "call": (13, ("l",), -1), "ret": (14, ("l",), -1)}
+                "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
 
-LUT_VALS = {"prepare": 0, "loop": 1, "is_zero": 2, "is_one": 3, "check": 4, "skip_this": 5, "done": 6 }
+LUT_VALS = {"prepare": 0, "main": 1, "inc": 2, "done": 6, "ret_label": 0, "test": 7}
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
 
@@ -41,7 +41,7 @@ def parse_line(instr, line, line_num):
     args_struct = None
     f_code = None
     args = ""
-    
+    print(instr)
     if instr[0] in LUT_VALS and instr[1] == ":":
         instr = instr[2:]
     elif instr[0] not in LUT_VALS and instr[1] == ":":
@@ -96,7 +96,7 @@ def parse_line(instr, line, line_num):
         raise CithParseError("Expected {} args but got {}".format(len(args_struct), arg_num), line, line_num)
     
     result = op_code + args + (str(f_code) if f_code != -1 else "")
-    
+  
     assert len(result) == 9
     
     return result
