@@ -79,8 +79,8 @@ loop2: subi $r4, 3                            # r4 shouload hoload value 73, pc 
   subi $r1, 1
   bneqz loop2
   ret 0					 # 108, pc = 66
-
-main: subr $r1, $r1 
+# 84 should hold data pointer
+main: subr $r1, $r1  
   subr $r2, $r2
   subr $r3, $r3             # storeore message[0] and message[1] as func call params
   subr $r4, $r4
@@ -238,13 +238,21 @@ main: subr $r1, $r1
 
   # create MSB with parity
   subr $r4, $r4  # pc = 201
-  load $r2, $r4  # message[0] in r2
-  move $r3, $r2   # save a copy in r3 
-  addi $r4, 1
-  load $r1, $r4  # message[1] in r1
+  addi $r4, 5    # r4 should contain 5
+  shl $r4, 4     # r4 should contain 80
+  addi $r4, 4    # r4 should contain 84
+  load $r2, $r4  # r2 should hold index + 2 for LSB of data
+  subi $r2, 2
+  load $r2, $r2  # message[0] in r2
+  move $r3, $r2   # save a copy in r3
+  load $r1, $r4   # r1 should hold index + 1 for MSB of data
+  subi $r1, 1 
+  load $r1, $r1  # message[1] in r1
   shl $r1, 5
   shr $r2, 3
   or $r1, $r2
+  subr $r4, $r4
+  addi $r4, 1
   shl $r4, 6    # r4 should hold 64
   addi $r4, 4   # r4 should hold 68
   load $r2, $r4 # r2 should contain mask 0xff
@@ -252,7 +260,7 @@ main: subr $r1, $r1
   and $r1, $r2
   addi $r4, 7   # r4 should contain 75
   addi $r4, 4   # r4 should contain 79
-  load $r2, $r4 # pc = 216
+  load $r2, $r4 # pc = 224
   or $r1, $r2 
   addi $r4, 5
   load $r2, $r4  # load updated data index into r2, need to store into r2 + 29
@@ -263,7 +271,7 @@ main: subr $r1, $r1
   addi $r2, 1
   store $r1, $r2  # message[1] with parity stored
 
-  move $r1, $r3   # move copy of message[0] back into r1, pc = 226
+  move $r1, $r3   # move copy of message[0] back into r1, pc = 234
   shr $r1, 1      # knock off b1
   shl $r1, 5      # should be b4 b3 b2 0 0 0 0 0
   move $r2, $r3    #  move copy of message[0] into r2
@@ -274,14 +282,14 @@ main: subr $r1, $r1
   # now put the rest of the parity bits in the right spot
   subr $r4, $r4
   addi $r4, 5
-  shl $r4, 4    # r4 should contain 80, pc = 235
+  shl $r4, 4    # r4 should contain 80, pc = 243
   load $r2, $r4  
   shl $r2, 4
   or $r1, $r2 
   addi $r4, 1   # r4 should contain 81
   load $r2, $r4   # r2 should hold p2
   shl $r2, 2
-  or $r1, $r2  # pc = 242
+  or $r1, $r2  # pc = 250
   addi $r4, 1   # r4 should contain 82
   load $r2, $r4  # r2 should hold p1
   shl $r2, 1
@@ -291,7 +299,7 @@ main: subr $r1, $r1
   or $r1, $r2  # r1 should now contain message[0] with parity 
 
   # save message[0] with parity in memory 
-  addi $r4, 1   # r4 should contain 84, pc = 250
+  addi $r4, 1   # r4 should contain 84, pc = 258
   load $r2, $r4 # need to store value in r2 + 28
   addi $r2, 7
   addi $r2, 7
@@ -308,12 +316,12 @@ main: subr $r1, $r1
   addi $r4, 6
   load $r1, $r4  # r1 should hold index for next data
 
-  subi $r1, 7 # pc = 263
+  subi $r1, 7 # pc = 271
   subi $r1, 7 
   subi $r1, 7
   subi $r1, 7
   subi $r1, 2
-  bneqz main  # pc = 268 
+  bneqz main  # pc = 276
 
 
 

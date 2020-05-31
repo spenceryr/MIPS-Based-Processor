@@ -34,6 +34,8 @@ initial begin
 // students may also pre_load desired constants into data_mem
   DUT.dp.dm.core[0] = 'd85;
   DUT.dp.dm.core[1] = 'd5;
+  DUT.dp.dm.core[2] = 'd85;
+  DUT.dp.dm.core[3] = 'd5;
 
 
   DUT.dp.dm.core[60] = 'd240;
