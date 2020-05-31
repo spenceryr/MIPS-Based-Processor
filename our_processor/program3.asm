@@ -1,0 +1,107 @@
+
+
+# can use 0-15 for scratch space
+# withinBytesCounter stored in 0
+# anywhereCounter stored in 1
+# numBytes stored in 2
+# i counter stored at 3
+# j counter stored at 4 
+# mask stored at 5
+# bytePointer stored at 6
+# WITHIN_BOUNDS_MASK stored at 7
+# UPPER_FIVE_BITS_MASK stored at 8
+# temp data 1 stored at 9
+# temp data 2 stored at 10
+# foundWithinByte stored at 11
+
+p3_main:
+  # clear everything and load in data
+  subr $r1, $r1
+  subr $r2, $r2
+  subr $r3, $r3 
+  subr $r4, $r4
+  addi $r4, 4     # init j to 0
+  store $r4, $r4 
+  addi $r4, 2     # r4 should hold 6 at this point
+  load $r3, $r4   # r3 should hold address of first byte of data
+  load $r1, $r3   # r1 should hold first byte of data at this point
+  addi $r3, 1     # r3 shold hold address of second byte of data
+  load $r2, $r3
+  addi $r4, 3     # r4 shold hold 9 at this point
+  store $r1, $r4  # store first byte of data in scratch space
+  addi $r4, 1     # r4 should hold 10 at this point
+  store $r2, $r4  # store second byte of data in scratch space
+
+# at start of loop, first byte is in r1 and second byte is in r2
+bit_loop:
+  subr $r4, $r4 
+  addi $r4, 7
+  addi $r4, 1     # r4 should hold 8 at this point
+  load $r2, $r4   # load in mask to get the 5 bits we are comparing
+  and $r1, $r2
+
+  subi $r4, 5     # r4 should hold 5 at this point
+  shl $r4, 5      # r4 should hold 160 at this point
+  load $r2, $r4   # r2 should hold the pattern
+  subr $r1, $r2
+  bneqz bit_loop_done     # if the data does not match the pattern, go to end of loop
+
+  subr $r4, $r4
+  addi $r4, 4     # r4 should hold 4 at this point
+  load $r1, $r4   # load in value of j
+  addi $r4, 3     # r4 should hold 7 at this point
+  load $r2, $r4   # load in WITHIN_BOUNDS_MASK
+  and $r1, $r2
+  bneqz after_pattern_match
+
+  # increment byteCounter and set foundWithinByte to 1
+  subr $r4, $r4
+  load $r1, $r4
+  addi $r1, 1         # increment byteCounter and store
+  store $r1, $r4
+  addi $r4, 7         # r4 should hold 7
+  addi $r4, 4         # r4 should hold 11
+  subr $r1, $r1
+  addi $r1, 1
+  store $r1, $r4      # set foundWithinByte to 1 and store
+
+inc_anywhere_counter:
+  subr $r4, $r4
+  addi $r4, 1         # r4 should hold 1 at this point
+  load $r1, $r4
+  addi $r1, 1
+  store $r1, $r4
+
+after_pattern_match:
+  subi $r4, $r4       # shift data bytes by 1 and store back in memory
+  addi $r4, 7
+  addi $r4, 2         # r4 should hold 9
+  load $r1, $r4 
+  addi $r4, 1         # r4 should hold 10
+  load $r2, $r4
+  shl $r2, 1
+  shl $r1, 1
+  store $r2, $r4 
+  subi $r4, 1         # r4 should hold value 9
+  store $r1, $r4
+
+  # load in value of j and see if we need to loop again
+  subi $r4, 5         # r4 should hold value 4
+  load $r1, $r4       # r1 should hold value of j
+  addi $r1, 1
+  store $r1, $r4
+  subi $r1, 7
+  subi $r1, 1
+  bneqz bit_loop
+
+  # increment numBytes if needed and increment bytePtr
+  addi $r4, 7         # r4 should hold value of 11
+  load $r1, $r4       # r1 should hold foundWithinByte
+  subi $r1, 1
+  bneqz after_byte_checkk
+  store $r1, $r4
+  subi $r4, 7       # r4 should hold 4
+  subi $r4, 2       # r4 should hold 2
+  
+  after_byte_check:
+

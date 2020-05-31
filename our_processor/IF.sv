@@ -10,16 +10,16 @@ module IF(
   output logic DONE
   );
 
-  logic [15:0] PC_INIT = 0;
+  logic [15:0] PC_INIT = 'd67;
 
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
 	if(Init)
       PC <= PC_INIT;				  // for first program; want different value for 2nd or 3rd
-	else if(PC == 'd123) begin
+	else if(PC == 'd999) begin
 	  DONE <= '1;
       PC_INIT <= 'd124;
     end
-    else if (PC == 'd300) begin
+    else if (PC == 'd999) begin
       DONE <= '1;
       PC_INIT <= 'd301;
     end

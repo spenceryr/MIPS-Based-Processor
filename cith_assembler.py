@@ -10,7 +10,7 @@ INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": 
                 "jmp": (10, ("l",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
                 "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
 
-LUT_VALS = {"prepare": 0, "main": 1, "inc": 2, "done": 6, "ret_label": 0, "test": 7}
+LUT_VALS = {"calculate_parity": 0, "loop1": 1, "loop2": 3, "main": 5}
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
 
