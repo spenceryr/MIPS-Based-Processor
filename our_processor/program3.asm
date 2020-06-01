@@ -14,9 +14,8 @@
 # temp data 2 stored at 10
 # foundWithinByte stored at 11
 
-p3_main:
-  # clear everything and load in data
-  subr $r1, $r1
+# clear everything and load in data
+p3_main:subr $r1, $r1
   subr $r2, $r2
   subr $r3, $r3 
   subr $r4, $r4
@@ -33,8 +32,7 @@ p3_main:
   store $r2, $r4  # store second byte of data in scratch space
 
 # at start of loop, first byte is in r1 and second byte is in r2
-bit_loop:
-  subr $r4, $r4 
+bit_loop: subr $r4, $r4     # pc = 15 
   addi $r4, 7
   addi $r4, 1     # r4 should hold 8 at this point
   load $r2, $r4   # load in mask to get the 5 bits we are comparing
@@ -44,9 +42,9 @@ bit_loop:
   shl $r4, 5      # r4 should hold 160 at this point
   load $r2, $r4   # r2 should hold the pattern
   subr $r1, $r2
-  bneqz after_bit_match     # if the data does not match the pattern, go to end of loop
+  bneqz after_pattern_match     # if the data does not match the pattern, go to end of loop
 
-  subr $r4, $r4
+  subr $r4, $r4   # pc = 25
   addi $r4, 4     # r4 should hold 4 at this point
   load $r1, $r4   # load in value of j
   addi $r4, 3     # r4 should hold 7 at this point
@@ -55,7 +53,7 @@ bit_loop:
   bneqz inc_anywhere_counter
 
   # increment byteCounter and set foundWithinByte to 1
-  subr $r4, $r4
+  subr $r4, $r4   # pc = 32
   load $r1, $r4
   addi $r1, 1         # increment byteCounter and store
   store $r1, $r4
@@ -65,19 +63,17 @@ bit_loop:
   addi $r1, 1
   store $r1, $r4      # set foundWithinByte to 1 and store
 
-inc_anywhere_counter:
-  subr $r4, $r4
+inc_anywhere_counter: subr $r4, $r4     # pc = 41
   addi $r4, 1         # r4 should hold 1 at this point
   load $r1, $r4
   addi $r1, 1
   store $r1, $r4
 
-after_pattern_match:
-  subi $r4, $r4       # shift data bytes by 1 and store back in memory
+after_pattern_match: subr $r4, $r4       # shift data bytes by 1 and store back in memory
   addi $r4, 7
   addi $r4, 2         # r4 should hold 9
   load $r1, $r4 
-  addi $r4, 1         # r4 should hold 10
+  addi $r4, 1         # r4 should hold 10, pc = 50
   load $r2, $r4
   shl $r2, 1
   shl $r1, 1
@@ -89,7 +85,7 @@ after_pattern_match:
   subi $r4, 5         # r4 should hold value 4
   load $r1, $r4       # r1 should hold value of j
   addi $r1, 1
-  store $r1, $r4
+  store $r1, $r4    # pc = 60
   subi $r1, 7
   subi $r1, 1
   bneqz bit_loop
@@ -98,25 +94,24 @@ after_pattern_match:
   addi $r4, 7         # r4 should hold value of 11
   load $r1, $r4       # r1 should hold foundWithinByte
   subi $r1, 1
-  bneqz after_byte_checkk
+  bneqz after_byte_check
   store $r1, $r4    # set foundWithinByte to 0
   subi $r4, 7       # r4 should hold 4
-  subi $r4, 2       # r4 should hold 2
+  subi $r4, 2       # r4 should hold 2, pc = 70
   load $r1, $r4     # inc numByte
   addi $r1, 1
   store $r1, $r4
 
 
-after_byte_check:
-  subr $r4, $r4 
+after_byte_check: subr $r4, $r4 
   addi $r4, 6      # r4 should hold 6
   load $r1, $r4    # inc bytePointer to the next data byte
   addi $r1, 1
   store $r1, $r4
 
   # inc i and check if we need to loop again
-  subi $r4 3        # r4 should now point to 3
-  load $r1, $r4
+  subi $r4, 3        # r4 should now point to 3
+  load $r1, $r4    # pc = 80
   addi $r1, 1
   store $r1, $r4
   subi $r1, 7
@@ -127,9 +122,8 @@ after_byte_check:
   bneqz p3_main
 
 # do pattern check over only the last byte
-last_byte:
-  subr $r1, $r1
-  subr $r2, $r2
+last_byte: subr $r1, $r1
+  subr $r2, $r2   # pc = 90
   subr $r3, $r3 
   subr $r4, $r4
   addi $r4, 4     # init j to 0
@@ -139,9 +133,8 @@ last_byte:
   addi $r4, 6     # r4 should hold 9 at this point
   store $r1, $r4
 
-last_byte_bit_loop:
-  subr $r4, $r4
-  addi $r4, 7     # r4 should hold 7
+last_byte_bit_loop: subr $r4, $r4
+  addi $r4, 7     # r4 should hold 7, pc = 100
   addi $r4, 2     # r4 should hold 2
   load $r1, $r4   # r1 should hold data byte
   subi $r4, 1     # r4 should hold 8
@@ -153,7 +146,7 @@ last_byte_bit_loop:
   subi $r4, 3     # r4 should hold 5 at this point
   shl $r4, 5      # r4 should hold 160 at this point
   load $r2, $r4   # r2 should hold the pattern
-  subr $r1, $r2
+  subr $r1, $r2    # pc = 110
   bneqz after_last_pattern_check
   subr $r4, $r4
 
@@ -164,7 +157,7 @@ last_byte_bit_loop:
   load $r1, $r4 
   addi $r1, 1
   store $r1, $r4
-  addi $r4, 7     # r4 should hold 8 at this point
+  addi $r4, 7     # r4 should hold 8 at this point, pc = 120
   addi $r4, 3     # r4 should hold 11 at this point
   load $r1, $r4 
   subr $r1, $r1
@@ -172,15 +165,14 @@ last_byte_bit_loop:
   store $r1, $r4
 
 
-after_last_pattern_check: 
-  # shift data byte and update
-  subi $r4, 2       # r4 should hold 9 at this point
+# shift data byte and update
+after_last_pattern_check: subi $r4, 2       # r4 should hold 9 at this point, pc = 126
   load $r1, $r4 
   shl $r1, 1
   store $r1, $r4
 
   # inc j and check if we need to loop again
-  subi $r4, 5       # r4 should hold 4 at this point
+  subi $r4, 5       # r4 should hold 4 at this point, pc = 130
   load $r1, $r4 
   addi $r1, 1
   store $r1, $r4
@@ -192,7 +184,7 @@ after_last_pattern_check:
   load $r1, $r4 
   subi $r1, 1
   bneqz p3_done
-  subi $r4, 7       # r4 should hold 4 at this point
+  subi $r4, 7       # r4 should hold 4 at this point, pc = 140
   subi $r4, 2       # r4 should hold 2 at this point
   load $r1, $r4 
   addi $r1, 1
@@ -200,13 +192,12 @@ after_last_pattern_check:
 
 
   # move counters to right memory locations
-  p3_done:
-    subr $r4, $r4 
+  p3_done: subr $r4, $r4 
     load $r1, $r4     # wihtinByte stored in r1
     addi $r4, 1       # r4 should contain 1
     load $r2, $r4     # r2 should contain anywhereCounter
     addi $r4, 1       # r4 should contain 2
-    load $r3, $r4     # r3 should contain numBytes
+    load $r3, $r4     # r3 should contain numBytes, pc = 150
 
     addi $r4, 1       # r4 should contain 3
     shl $r4, 6        # r4 should contain 192
@@ -214,4 +205,4 @@ after_last_pattern_check:
     addi $r4, 1       # r4 should contain 193
     store $r3, $r4 
     addi $r4, 1       # r4 should contain 194
-    store $r2, $r4
+    store $r2, $r4   # pc = 157
