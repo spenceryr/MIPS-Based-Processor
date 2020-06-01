@@ -1,16 +1,15 @@
 
 
 # extra scratch space needed, going to use the following
-# function params: mask0 - 69, mask1 - 70, message[0] - 71, message[1] = 72
-# function return parity: 73
-# masked_message[0] - 74. masked_message[1] - 75, i - 76, one_constoreore - 77,
+# function params: mask0 - 69 -> 195, mask1 - 70 -> 196, message[0] - 71 -> 197, message[1] = 72 -> 198
+# function return parity: 73 -> 199
+# masked_message[0] - 74 -> 200. masked_message[1] - 75 -> 201, i - 76 -> 202, one_constoreore - 77 -> 203,
 
 calculate_parity: subr $r1, $r1                            # parity = 0
 subr $r2, $r2 
-addi $r2, 1
-shl $r2, 6
-addi $r2, 7
-addi $r2, 2                              # r2 shouload hoload value 73
+addi $r2, 6
+shl $r2, 5                               # r2 should hold 192
+addi $r2, 7                              # r2 shouload hoload value 199
 store $r2, $r1 
 
 subi $r2, 2                              # masked_message[0] = message[0] & mask0

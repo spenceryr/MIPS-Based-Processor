@@ -1,14 +1,13 @@
 # extra scratch space needed, going to use the following
-# function params: mask0 - 69, mask1 - 70, message[0] - 71, message[1] = 72
-# function return parity: 73
-# masked_message[0] - 74. masked_message[1] - 75, i - 76, one_constoreore - 77,
+# function params: mask0 - 69 -> 195, mask1 - 70 -> 196, message[0] - 71 -> 197, message[1] = 72 -> 198
+# function return parity: 73 -> 199
+# masked_message[0] - 74 -> 200. masked_message[1] - 75 -> 201, i - 76 -> 202, one_constoreore - 77 -> 203
 
 calculate_parity: subr $r1, $r1                            # parity = 0
 subr $r2, $r2 
-addi $r2, 1
-shl $r2, 6
-addi $r2, 7
-addi $r2, 2                              # r2 shouload hoload value 73
+addi $r2, 6
+shl $r2, 5
+addi $r2, 7                              # r2 should hold value of 199
 store $r1, $r2 
 
 subi $r2, 2                              # masked_message[0] = message[0] & mask0
@@ -96,11 +95,14 @@ main: subr $r1, $r1
   addi $r3, 1
   store $r3, $r4 # store the new index for the next iteration, r4 should contain 84
 
-  subi $r4, 7   # r4 should hold 77
-  subi $r4, 6   # r4 should hold 71
+  subr $r4, $r4 
+  addi $r4, 6
+  shl $r4, 5
+  addi $r4, 5
+  subi $r4, 6   # r4 should hold 197
 
   store $r1, $r4 
-  addi $r4, 1                # r4 shouload contain 72
+  addi $r4, 1                # r4 shouload contain 198
   store $r2, $r4  
 
   # p8_mask0 - 60, p8_mask1 - 61, p8 - 79
@@ -112,20 +114,25 @@ main: subr $r1, $r1
   load $r1, $r4                # r1 shouload contain p8_mask0 
   addi $r4, 1                # r4 shouload contain 61
   load $r2, $r4                # r2 shouload contain p8_mask1
-  addi $r4, 7                # r4 shouload contain 68
-  addi $r4, 1                # r4 shouload contain 69
+  
+  subr $r4, $r4
+  addi $r4, 6 
+  shl $r4, 5
+  addi $r4, 3                   # r4 shouload contain 195               
   store $r1, $r4                # storeore mask0 and mask1 for function call
   addi $r4, 1 
   store $r2, $r4
   call 0
 
   subr $r4, $r4              # save result in correct location, pc = 99
-  addi $r4, 1
-  shl $r4, 6                 # r4 shouload contain 64
-  addi $r4, 7                # r4 shouload contain 71
-  addi $r4, 2                # r4 shouload contain 73
+  addi $r4, 6
+  shl $r4, 5                 # r4 shouload contain 64
+  addi $r4, 7                # r4 shouload contain 199
   load $r1, $r4
-  addi $r4, 6                # r4 shouload contain 79
+  subr $r4, $r4
+  addi $r4, 5
+  shl $r4, 4
+  subi $r4, 1                # r4 shouload contain 79               
   store $r1, $r4
 
   # p4_mask0 - 62, p4_mask1 - 63, p4 - 80
@@ -136,19 +143,25 @@ main: subr $r1, $r1
   load $r1, $r4                # r1 shouload contain p4_mask0 
   addi $r4, 1                # r4 shouload contain 63
   load $r2, $r4                # r2 shouload contain p4_mask1
-  addi $r4, 6                # r4 shouload contain 69
+
+  subr $r4, $r4 
+  addi $r4, 6
+  shl $r4, 5
+  addi $r4, 3                   # r4 shouload contain 195               
   store $r1, $r4                # storeore mask0 and mask1 for function call
   addi $r4, 1 
   store $r2, $r4
   call 1
 
   subr $r4, $r4              # save result in correct location, pc = 119
-  addi $r4, 1
-  shl $r4, 6                 # r4 shouload contain 64
-  addi $r4, 7                # r4 shouload contain 71
-  addi $r4, 2                # r4 shouload contain 73
+  addi $r4, 6
+  shl $r4, 5                 # r4 shouload contain 64
+  addi $r4, 7                # r4 shouload contain 199               
   load $r1, $r4
-  addi $r4, 7                # r4 shouload contain 80
+
+  subr $r4, $r4 
+  addi $r4, 5
+  shl $r4, 4                # r4 shouload contain 80
   store $r1, $r4
 
   # p2_mask0 - 64, p2_mask1 - 65, p2 - 81
@@ -158,19 +171,25 @@ main: subr $r1, $r1
   load $r1, $r4                 # r1 shouload contain p4_mask0 
   addi $r4, 1                # r4 shouload contain 65
   load $r2, $r4                # r2 shouload contain p4_mask1
-  addi $r4, 4                # r4 shouload contain 69
+
+  subr $r4, $r4
+  addi $r4, 6
+  shl $r4, 5
+  addi $r4, 3                # r4 shouload contain 195
   store $r1, $r4                # storeore mask0 and mask1 for function call
   addi $r4, 1 
   store $r2, $r4
   call 2
 
   subr $r4, $r4              # save result in correct location, pc = 138
-  addi $r4, 1
-  shl $r4, 6                 # r4 shouload contain 64
-  addi $r4, 7                # r4 shouload contain 71
-  addi $r4, 2                # r4 shouload contain 73
+  addi $r4, 6
+  shl $r4, 5                 # r4 shouload contain 64
+  addi $r4, 7                # r4 shouload contain 199
   load $r1, $r4
-  addi $r4, 7                # r4 shouload contain 80
+
+  subr $r4, $r4 
+  addi $r4, 5
+  shl $r4, 4
   addi $r4, 1                # r4 shouload contain 81
   store $r1, $r4
 
@@ -182,19 +201,25 @@ main: subr $r1, $r1
   load $r1, $r4                # r1 shouload contain p4_mask0 
   addi $r4, 1                # r4 shouload contain 67
   load $r2, $r4                # r2 shouload contain p4_mask1
-  addi $r4, 2                # r4 shouload contain 69
+
+  subr $r4, $r4 
+  addi $r4, 6
+  shl $r4, 5
+  addi $r4, 3                # r4 shouload contain 195
   store $r1, $r4                # storeore mask0 and mask1 for function call
   addi $r4, 1 
   store $r2, $r4
   call 3
 
   subr $r4, $r4              # save result in correct location, pc = 159
-  addi $r4, 1
-  shl $r4, 6                 # r4 shouload contain 64
-  addi $r4, 7                # r4 shouload contain 71
-  addi $r4, 2                # r4 shouload contain 73
+  addi $r4, 6
+  shl $r4, 5                 # r4 shouload contain 64
+  addi $r4, 7                # r4 shouload contain 199              
   load $r1, $r4
-  addi $r4, 7                # r4 shouload contain 80
+
+  subr $r4, $r4 
+  addi $r4, 5
+  shl $r4, 4
   addi $r4, 2                # r4 shouload contain 82
   store $r1, $r4
 
@@ -204,19 +229,25 @@ main: subr $r1, $r1
   shl $r4, 6                 # r4 shouload be 64 
   addi $r4, 4                # r4 shouload be 68
   load $r1, $r4                # r1 shouload contain p4_mask0 
-  addi $r4, 1                # r4 shouload contain 69
+
+  subr $r4, $r4 
+  addi $r4, 6
+  shl $r4, 5
+  addi $r4, 3                # r4 shouload contain 195
   store $r1, $r4                # storeore mask0 and mask1 for function call
   addi $r4, 1 
   store $r1, $r4
   call 4
 
   subr $r4, $r4              # save result in correct location, pc = 178
-  addi $r4, 1
-  shl $r4, 6                 # r4 shouload contain 64
-  addi $r4, 7                # r4 shouload contain 71
-  addi $r4, 2                # r4 shouload contain 73
+  addi $r4, 6
+  shl $r4, 5                 # r4 shouload contain 64
+  addi $r4, 7                # r4 shouload contain 199                
   load $r1, $r4
-  addi $r4, 7                # r4 shouload contain 80
+
+  subr $r4, $r4
+  addi $r4, 5
+  shle $r4, 4
   addi $r4, 3                # r4 shouload contain 83
   store $r1, $r4
 
