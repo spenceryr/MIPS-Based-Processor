@@ -32,8 +32,11 @@ initial begin
 
 
 // students may also pre_load desired constants into data_mem
+
   DUT.dp.dm.core[0] = 'd85;
   DUT.dp.dm.core[1] = 'd5;
+  DUT.dp.dm.core[2] = 'd85;
+  DUT.dp.dm.core[3] = 'd5;
 
 
   DUT.dp.dm.core[60] = 'd240;
@@ -50,6 +53,11 @@ initial begin
 
   DUT.dp.dm.core[68] = 'd255;
 
+
+  // program 2 constants
+ // DUT.dp.dm.core[6] = 'd128;
+ // DUT.dp.dm.core[7] = 'd252;
+ // DUT.dp.dm.core[8] = 'd248;
 
 
 // Initialize DUT's register file

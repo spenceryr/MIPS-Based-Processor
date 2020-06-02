@@ -51,26 +51,28 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
               .OUT_S_OUT(F_S_OUT));
 
 // rel LUTs
-LUT_16 #(.c0(0), .c1(4), .c2(0), .c3(5),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
+/**
+ *  4 =>, inc_anywhere_counter, 6 => p3_main, 10 => after_byte_check,
+    12 => last_byte_bit_loop, 14 => p3_done
+ */
+LUT_16 #(.c0(0), .c1(4), .c2(0), .c3(-90),
+         .c4(10), .c5(7), .c6(-36), .c7(6),
+         .c8(-273), .c9(8), .c10(44), .c11(18),
          .c12(0), .c13(0), .c14(0), .c15(0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
 
-LUT_16 #(.c0(-18), .c1(-18), .c2(-202), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
+LUT_16 #(.c0(-18), .c1(-18), .c2(-233), .c3(-50),
+         .c4(22), .c5(0), .c6(15), .c7(0),
+         .c8(-101), .c9(17), .c10(21), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
 
-
-// abs LUTs
-LUT_16 #(.c0(99), .c1(138), .c2(178), .c3(36),
+LUT_16 #(.c0(103), .c1(151), .c2(199), .c3(36),
          .c4(23), .c5(5), .c6(6), .c7(7),
-         .c8(8), .c9(9), .c10(10), .c11(11),
+         .c8(91), .c9(175), .c10(10), .c11(11),
          .c12(12), .c13(13), .c14(14), .c15(15)) a1_lut (.in(lut_in), .out(abs_lut_out1));
 
-LUT_16 #(.c0(119), .c1(159), .c2(2), .c3(3),
+LUT_16 #(.c0(128), .c1(176), .c2(2), .c3(3),
          .c4(4), .c5(5), .c6(6), .c7(7),
-         .c8(8), .c9(9), .c10(10), .c11(11),
+         .c8(135), .c9(201), .c10(10), .c11(11),
          .c12(12), .c13(13), .c14(14), .c15(15)) a2_lut (.in(lut_in), .out(abs_lut_out2));
 
 always_comb
@@ -85,9 +87,9 @@ always_comb
 
 always_comb
     if (CTRL_lut_in)
-        {lut_in, lut_sel} = reg_a_out[4:0];
+        {lut_sel, lut_in} = reg_a_out[4:0];
     else
-        {lut_in, lut_sel} = instr_out[4:0];
+        {lut_sel, lut_in} = instr_out[4:0];
 
 
 always_comb
