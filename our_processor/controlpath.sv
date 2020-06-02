@@ -73,7 +73,7 @@ always_comb
         cADDR, cSUBR, cADDI, cSUBI,
         cSHR, cSHL, cAND, cOR,
         cANDI, cXOR, cLOAD, cMOV,
-        cCALL                   : CTRL_reg_write_en = 1'b1;
+        cCALL, cRSHL            : CTRL_reg_write_en = 1'b1;
         default                 : CTRL_reg_write_en = 1'b0;
 endcase
 
@@ -103,7 +103,7 @@ always_comb
         cADDR, cADDI: CTRL_alu_op = kADD;
         cSUBR, cSUBI: CTRL_alu_op = kSUB;
         cSHR: CTRL_alu_op = kSHR;
-        cSHL: CTRL_alu_op = kSHL;
+        cSHL, cRSHL: CTRL_alu_op = kSHL;
         cAND, cANDI: CTRL_alu_op = kAND;
         cOR: CTRL_alu_op = kOR;
         cXOR: CTRL_alu_op = kXOR;

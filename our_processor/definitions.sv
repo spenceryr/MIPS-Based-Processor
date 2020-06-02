@@ -36,10 +36,12 @@ package definitions;
     const logic [4:0]cMOV   = 5'b1100?; //000100000kPASS
     const logic [4:0]cCALL  = 5'b1101?; //001000000kPASS
     const logic [4:0]cRET   = 5'b1110?; //001000000kPASS
+    const logic [4:0]cRSHL  = 5'b1111?; 
 // enum names will appear in timing diagram
     typedef enum logic[2:0] {
-        ADD, SUB, RSH, LSH, AND,
-        OR, XOR, PASS} op_mne;
+        OP_ADD, OP_SUB, OP_RSH, OP_LSH, OP_AND,
+        OP_OR, OP_XOR, OP_PASS} op_mne;
+
 // note: kADD is of type logic[2:0] (3-bit binary)
 //   ADD is of type enum -- equiv., but watch casting
 //   see ALU.sv for how to handle this

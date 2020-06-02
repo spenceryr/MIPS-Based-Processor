@@ -18,6 +18,9 @@ module datapath(
     output DONE,
            fcode
 );
+int fi;
+initial
+  fi = $fopen("test_out.txt", "w");
 
 
 logic [7:0] ALU_out, ALU_in_b;
@@ -27,7 +30,7 @@ logic F_ZERO, F_C_OUT, F_S_OUT;
 logic [8:0] instr_out;
 logic [7:0] mem_data_out;
 logic [7:0] reg_write_data;
-logic [7:0] reg_a_in;
+logic [2:0] reg_a_in;
 logic [7:0] reg_a_out, reg_b_out;
 logic [15:0] rel_lut_out, abs_lut_out,
              rel_lut_out1, abs_lut_out1, rel_lut_out2, abs_lut_out2;
@@ -52,19 +55,19 @@ LUT_16 #(.c0(0), .c1(4), .c2(0), .c3(5),
          .c4(0), .c5(0), .c6(0), .c7(0),
          .c8(0), .c9(0), .c10(0), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
-			
+
 LUT_16 #(.c0(-18), .c1(-18), .c2(-202), .c3(0),
          .c4(0), .c5(0), .c6(0), .c7(0),
          .c8(0), .c9(0), .c10(0), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
-			
-			
+
+
 // abs LUTs
 LUT_16 #(.c0(99), .c1(138), .c2(178), .c3(36),
          .c4(23), .c5(5), .c6(6), .c7(7),
          .c8(8), .c9(9), .c10(10), .c11(11),
          .c12(12), .c13(13), .c14(14), .c15(15)) a1_lut (.in(lut_in), .out(abs_lut_out1));
-			
+
 LUT_16 #(.c0(119), .c1(159), .c2(2), .c3(3),
          .c4(4), .c5(5), .c6(6), .c7(7),
          .c8(8), .c9(9), .c10(10), .c11(11),
@@ -139,6 +142,9 @@ ALU alu (.INPUTA(reg_a_out),
          .C_OUT(ALU_c_out),
          .S_OUT(ALU_s_out),
          .ZERO(ALU_zero));
+
+always @(posedge CLK)
+  $fdisplay(fi, "%s %d %d = %d %t\n", op_mne'(CTRL_alu_op), reg_a_out, ALU_in_b, ALU_out, $time);
 
 data_mem dm (.CLK(CLK),
              .DataAddress(reg_b_out),

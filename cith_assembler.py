@@ -8,11 +8,14 @@ INSTRUCTIONS = {"addr": (0, ("r", "r"), 0), "subr": (0, ("r", "r"), 1), "addi": 
                 "and": (5, ("r", "r"), 0), "or": (5, ("r", "r"), 1), "andi": (6, ("r", "i3"), -1),
                 "xor": (7, ("r", "r"), 0), "beqz": (8, ("l",), -1), "bneqz": (9, ("l",), -1),
                 "jmp": (10, ("l",), -1), "load": (11, ("r", "r"), 0), "store": (11, ("r", "r"), 1),
-                "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1)}
+                "move": (12, ("r", "r"), 0), "call": (13, ("i5",), -1), "ret": (14, ("i5",), -1),
+                "rshl": (15, ("r", "r"), 0)}
 
 LUT_VALS = {"calculate_parity": 0, "loop1": 1, "loop2": 3, "main": 5}
 
 REGISTERS = {"$r1": 0, "$r2": 1, "$r3": 2, "$r4": 3}
+
+# CONSTANTS = {}
 
 class CithError(Exception):
     def __str__(self):
@@ -23,7 +26,7 @@ class CithParseError(Exception):
         self.message = message
         self.line = line
         self.line_num = line_num
-    
+
     def __str__(self):
         return self.message + " ({}):".format(self.line_num) + "\n\t" + self.line
 
@@ -46,14 +49,14 @@ def parse_line(instr, line, line_num):
         instr = instr[2:]
     elif instr[0] not in LUT_VALS and instr[1] == ":":
         raise CithParseError("Invalid label", line, line_num)
-    
+
     if instr[0] in INSTRUCTIONS:
         op_code, args_struct, f_code = INSTRUCTIONS[instr[0]]
         op_code = '{0:04b}'.format(op_code)
         instr = instr[1:]
     else:
         raise CithParseError("Invalid instruction \"{}\"".format(instr[0]), line, line_num)
-    
+
     comma = False
     arg_num = 0
     for a in instr:
@@ -62,7 +65,7 @@ def parse_line(instr, line, line_num):
         elif (comma):
             comma = not comma
             continue
-        
+
         arg_type = args_struct[arg_num]
         if arg_type == "r":
             if a in REGISTERS:
@@ -75,7 +78,7 @@ def parse_line(instr, line, line_num):
                 a = int(a)
             except ValueError:
                 raise CithParseError("Expected integer but got {}".format(a), line, line_num)
-            
+
             if a >= 0 and a < 2**i_size:
                 args += ('{0:0' + str(i_size) + 'b}').format(a)
             else:
@@ -85,20 +88,20 @@ def parse_line(instr, line, line_num):
         		args += '{0:05b}'.format(LUT_VALS[a])
         	else:
         		raise CithParseError("Not a valid label value", line, line_num)
-        
+
         arg_num += 1
         comma = not comma
-        
+
     if not comma and instr:
         raise CithParseError("Expected arg after comma", line, line_num)
-    
+
     if arg_num != len(args_struct):
         raise CithParseError("Expected {} args but got {}".format(len(args_struct), arg_num), line, line_num)
-    
+
     result = op_code + args + (str(f_code) if f_code != -1 else "")
-  
+
     assert len(result) == 9
-    
+
     return result
 
 
@@ -106,6 +109,30 @@ def build_list(filename):
     instrs = []
     with open(filename, 'rb') as f:
         for i, line in enumerate(f, start=1):
+            # if l[:7] == "define:":
+            #     try:
+            #         name, value = l[7:].strip().split("#")[0].split("=")
+            #     except ValueError:
+            #         raise CithParseError("Invalid Define Statement", line.decode("ascii"), i)
+            #
+            #     if " " in name:
+            #         raise CithParseError("Constant name can't contain space", line.decode("ascii"), i)
+            #
+            #     try:
+            #         int(name[0])
+            #         raise CithParseError("Constant can't start with numeral", line.decode("ascii"), i)
+            #     except ValueError:
+            #         pass
+            #
+            #     try:
+            #         value = int(value)
+            #     except ValueError:
+            #         raise CithParseError("Constant value must be numeral", line.decode("ascii"), i)
+            #
+            #     if name in LUT_VALS or name in REGISTERS or name in INSTRUCTIONS:
+            #         raise CithParseError("Name of constant cannot be an instruction, register, or LUT value")
+            #
+            #     CONSTANTS[name] = value
             l = split_line(line.decode("ascii").lower())
             if (l != []):
                 instrs.append(parse_line(l, line.decode("ascii"), i))
@@ -121,9 +148,9 @@ def main():
         out_file = sys.argv[2]
     else:
         out_file = None
-    
+
     instrs = build_list(in_file)
-    
+
     if out_file:
         with open(out_file, 'w') as f:
             for i in instrs:

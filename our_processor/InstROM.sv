@@ -1,12 +1,12 @@
-// Create Date:    15:50:22 10/02/2016 
-// Design Name: 
-// Module Name:    InstROM 
+// Create Date:    15:50:22 10/02/2016
+// Design Name:
+// Module Name:    InstROM
 // Project Name:   CSE141L
-// Tool versions: 
-// Description: Verilog module -- instruction ROM template	
+// Tool versions:
+// Description: Verilog module -- instruction ROM template
 //	 preprogrammed with instruction values (see case statement)
 //
-// Revision: 
+// Revision:
 //
 module InstROM #(parameter A=16, W=9) (
   input       [A-1:0] InstAddress,
@@ -15,14 +15,14 @@ module InstROM #(parameter A=16, W=9) (
 // alternative expression
 //   need $readmemh or $readmemb to initialize all of the elements
   logic[W-1:0] inst_rom[2**(A)];
-  
-  always_comb begin 
+
+  always_comb begin
 	InstOut = inst_rom[InstAddress];
   end
-	
+
 
   initial begin		                  // load from external text file
-  	$readmemb("C:\\141L-Lab-2\\our_processor\\final_program.txt",inst_rom);
-  end 
-  
+  	$readmemb(".\\our_processor\\final_program.txt",inst_rom);
+  end
+
 endmodule

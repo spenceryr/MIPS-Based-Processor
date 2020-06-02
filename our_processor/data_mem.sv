@@ -16,7 +16,7 @@ module data_mem(
   always_comb                     // reads are combinational
     if(ReadMem) begin
       DataOut = core[DataAddress];
-	  $display("Memory read M[%d] = %d",DataAddress,DataOut);
+	  //$display("Memory read M[%d] = %d",DataAddress,DataOut);
     end
     else
       DataOut = 'bZ;           // tristate, undriven
@@ -24,7 +24,7 @@ module data_mem(
   always_ff @ (posedge CLK)		 // writes are sequential
 	if(WriteMem) begin
       core[DataAddress] <= DataIn;
-	  $display("Memory write M[%d] = %d",DataAddress,DataIn);
+	  //$display("Memory write M[%d] = %d",DataAddress,DataIn);
     end
 
 endmodule
