@@ -10,7 +10,7 @@ module IF(
   output logic DONE
   );
 
-  logic [15:0] PC_INIT = 'd0;
+  logic [15:0] PC_INIT = 'd66;
 
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
 	if(Init)
