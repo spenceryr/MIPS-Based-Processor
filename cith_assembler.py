@@ -80,9 +80,9 @@ def instr_to_mc(instr, line, line_num):
     f_code = None
     args = ""
     print(instr)
-    if instr[0] in LINKS and instr[1] == ":":
+    if len(instr) > 2 and instr[0] in LINKS and instr[1] == ":":
         instr = instr[2:]
-    elif instr[0] not in LINKS and instr[1] == ":":
+    elif len(instr) > 2 and instr[0] not in LINKS and instr[1] == ":":
         raise CithParseError("Invalid label", line, line_num)
 
     if instr[0] in INSTRUCTIONS:
@@ -103,29 +103,29 @@ def instr_to_mc(instr, line, line_num):
         elif (comma):
             comma = not comma
             continue
+        if args_struct:
+            arg_type = args_struct[arg_num]
+            if arg_type == "r":
+                if a in REGISTERS:
+                    args += '{0:02b}'.format(REGISTERS[a])
+                else:
+                    raise CithParseError("Expected register but got {}".format(a), line, line_num)
+            elif arg_type[0] == "i":
+                i_size = int(arg_type[1])
+                try:
+                    a = int(a)
+                except ValueError:
+                    raise CithParseError("Expected integer but got {}".format(a), line, line_num)
 
-        arg_type = args_struct[arg_num]
-        if arg_type == "r":
-            if a in REGISTERS:
-                args += '{0:02b}'.format(REGISTERS[a])
-            else:
-                raise CithParseError("Expected register but got {}".format(a), line, line_num)
-        elif arg_type[0] == "i":
-            i_size = int(arg_type[1])
-            try:
-                a = int(a)
-            except ValueError:
-                raise CithParseError("Expected integer but got {}".format(a), line, line_num)
-
-            if a >= 0 and a < 2**i_size:
-                args += ('{0:0' + str(i_size) + 'b}').format(a)
-            else:
-                raise CithParseError("Integer immediate out of bounds, expected between or equal to 0 and {}".format(2**i_size-1), line, line_num)
-        elif arg_type == "l":
-        	if a in LUT_VALS:
-        		args += '{0:05b}'.format(LUT_VALS[a])
-        	else:
-        		raise CithParseError("Not a valid label value", line, line_num)
+                if a >= 0 and a < 2**i_size:
+                    args += ('{0:0' + str(i_size) + 'b}').format(a)
+                else:
+                    raise CithParseError("Integer immediate out of bounds, expected between or equal to 0 and {}".format(2**i_size-1), line, line_num)
+            elif arg_type == "l":
+            	if a in LUT_VALS:
+            		args += '{0:05b}'.format(LUT_VALS[a])
+            	else:
+            		raise CithParseError("Not a valid label value", line, line_num)
 
         arg_num += 1
         comma = not comma
@@ -158,10 +158,10 @@ def link_abs(l, ic):
         NEED_LINK[l[-1]].append((ic, "abs"))
         return
     lic = LINKS[l[-1]]
-    if lic not in ABS_LUT:
-        ABS_LUT.append(lic)
+    if lic - 1 not in ABS_LUT:
+        ABS_LUT.append(lic - 1)
         assert(len(ABS_LUT) < 33)
-    l[-1] = str(ABS_LUT.index(lic))
+    l[-1] = str(ABS_LUT.index(lic - 1))
 
 def create_link(l, ic, instrs, line, i):
     try:
