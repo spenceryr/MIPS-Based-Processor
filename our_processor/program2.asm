@@ -79,7 +79,10 @@ main2: subr $r4, $r4
   addi $r1, 3
   shl $r1, 5
   addi $r1, 6
-  shl $r1, 1
+  shl $r1, 1 # 204
+  load $r4, $r1
+  store $r2, $r4
+  subr $r4, $r4
   addi $r1, 1 # 205
   store $r4, $r1
   addi $r1, 1 # 206
