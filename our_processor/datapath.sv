@@ -55,9 +55,9 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
  *  4 =>, inc_anywhere_counter, 6 => p3_main, 10 => after_byte_check,
     12 => last_byte_bit_loop, 14 => p3_done
  */
-LUT_16 #(.c0(-18), .c1(8), .c2(6), .c3(7),
-         .c4(4), .c5(-101), .c6(17), .c7(24),
-         .c8(21), .c9(47), .c10(-297), .c11(0),
+LUT_16 #(.c0(10), .c1(22), .c2(-50), .c3(7),
+         .c4(-90), .c5(15), .c6(-36), .c7(6),
+         .c8(0), .c9(47), .c10(0), .c11(0),
          .c12(0), .c13(0), .c14(0), .c15(0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
 LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
          .c4(0), .c5(0), .c6(0), .c7(0),
