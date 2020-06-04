@@ -351,13 +351,14 @@ p1_return4:
   addi $r4, 7
   addi $r4, 6
   load $r1, $r4  # r1 should hold index for next data
-
   subi $r1, 7 # pc = 271
   subi $r1, 7
   subi $r1, 7
   subi $r1, 7
   subi $r1, 2
   bneqz main  # pc = 276
+
+
   subr $r4, $r4
   subr $r1, $r1
   addi $r4, 3

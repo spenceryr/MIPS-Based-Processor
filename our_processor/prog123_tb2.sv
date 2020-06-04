@@ -201,6 +201,8 @@ initial begin
 	str2 = str2<<1;
   end
   #10ns req   = 1'b1;      // pulse request to DUT
+  for (int i = 0; i < 16; i ++)
+    DUT.dp.dm.core[i] = '0;
   DUT.dp.dm.core[6] = 'd128;
   DUT.dp.dm.core[7] = 'd252;
   DUT.dp.dm.core[8] = 'd248;
