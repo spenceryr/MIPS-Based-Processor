@@ -18,9 +18,8 @@ module datapath(
     output DONE,
            fcode
 );
-//int fi;
-//initial
-//  fi = $fopen("test_out.txt", "w");
+
+int fi = $fopen("test_out.txt", "w");
 
 
 logic [7:0] ALU_out, ALU_in_b;
@@ -55,22 +54,23 @@ ALU_FLAGS af (.IN_ALU_ZERO(ALU_zero),
  *  4 =>, inc_anywhere_counter, 6 => p3_main, 10 => after_byte_check,
     12 => last_byte_bit_loop, 14 => p3_done
  */
-LUT_16 #(.c0(-18), .c1(-232), .c2(0), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) r1_lut (.in(lut_in), .out(rel_lut_out1));
-LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
-LUT_16 #(.c0(102), .c1(127), .c2(150), .c3(175),
-         .c4(198), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) a1_lut (.in(lut_in), .out(abs_lut_out1));
-LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
-         .c4(0), .c5(0), .c6(0), .c7(0),
-         .c8(0), .c9(0), .c10(0), .c11(0),
-         .c12(0), .c13(0), .c14(0), .c15(0)) a2_lut (.in(lut_in), .out(abs_lut_out2));
+ LUT_16 #(.c0(-18), .c1(-232), .c2(8), .c3(6),
+          .c4(7), .c5(4), .c6(-101), .c7(17),
+          .c8(24), .c9(21), .c10(47), .c11(-301),
+          .c12(10), .c13(22), .c14(-50), .c15(-90)) r1_lut (.in(lut_in), .out(rel_lut_out1));
+ LUT_16 #(.c0(15), .c1(-38), .c2(0), .c3(0),
+          .c4(0), .c5(0), .c6(0), .c7(0),
+          .c8(0), .c9(0), .c10(0), .c11(0),
+          .c12(0), .c13(0), .c14(0), .c15(0)) r2_lut (.in(lut_in), .out(rel_lut_out2));
+ LUT_16 #(.c0(102), .c1(127), .c2(150), .c3(175),
+          .c4(198), .c5(352), .c6(408), .c7(423),
+          .c8(451), .c9(495), .c10(521), .c11(0),
+          .c12(0), .c13(0), .c14(0), .c15(0)) a1_lut (.in(lut_in), .out(abs_lut_out1));
+ LUT_16 #(.c0(0), .c1(0), .c2(0), .c3(0),
+          .c4(0), .c5(0), .c6(0), .c7(0),
+          .c8(0), .c9(0), .c10(0), .c11(0),
+          .c12(0), .c13(0), .c14(0), .c15(0)) a2_lut (.in(lut_in), .out(abs_lut_out2));
+
 
 
 always_comb
@@ -143,8 +143,8 @@ ALU alu (.INPUTA(reg_a_out),
          .S_OUT(ALU_s_out),
          .ZERO(ALU_zero));
 
-//always @(posedge CLK)
-//  $fdisplay(fi, "%d %s %d %d = %d %t\n", PC, op_mne'(CTRL_alu_op), reg_a_out, ALU_in_b, ALU_out, $time);
+always @(posedge CLK)
+ $fdisplay(fi, "%d %s %d %d = %d %t\n", PC, op_mne'(CTRL_alu_op), reg_a_out, ALU_in_b, ALU_out, $time);
 
 data_mem dm (.CLK(CLK),
              .DataAddress(reg_b_out),

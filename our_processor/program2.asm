@@ -1,19 +1,19 @@
 calculate_parity: subr $r1, $r1                            # parity = 0
-subr $r2, $r2 
+subr $r2, $r2
 addi $r2, 6
 shl $r2, 5
 addi $r2, 7                              # r2 should hold value of 199
-store $r1, $r2 
+store $r1, $r2
 subi $r2, 2                              # masked_message[0] = message[0] & mask0
-load $r1, $r2 
+load $r1, $r2
 subi $r2, 2 # r2 = 69
-move $r3, $r2                              # r3 shouload hoload value 69 
-load $r2, $r3 # r2 contains mask0 
+move $r3, $r2                              # r3 shouload hoload value 69
+load $r2, $r3 # r2 contains mask0
 and $r1, $r2
 addi $r3, 5                              # r3 shouload hoload value 74
 store $r1, $r3
 subi $r3, 2                              # masked_mesage[1] = message[1] & mask1, r3 contains 72, pc = 14
-load $r1, $r3 
+load $r1, $r3
 subi $r3, 2
 load $r2, $r3
 and $r1, $r2
@@ -27,7 +27,7 @@ loop1: subi $r4, 3                            # r4 shouload hoload value 73, pc 
   load $r1, $r4
   addi $r4, 1                            # r4 shouload hoload value 74
   load $r2, $r4                            # parity = parity ^ (masked_message[0] & 1)
-  move $r3, $r2                            # save copy of masked_message[0] in r3 to shift later 
+  move $r3, $r2                            # save copy of masked_message[0] in r3 to shift later
   andi $r2, 1
   xor $r1, $r2
   subi $r4, 1                            # r4 shouload hoload value 73
@@ -48,7 +48,7 @@ loop2: subi $r4, 3                            # r4 shouload hoload value 73, pc 
   load $r1, $r4
   addi $r4, 2                            # r4 shouload hoload value 75
   load $r2, $r4                            # parity = parity ^ (masked_message[0] & 1)
-  move $r3, $r2                            # save copy of masked_message[0] in r3 to shift later 
+  move $r3, $r2                            # save copy of masked_message[0] in r3 to shift later
   andi $r2, 1
   xor $r1, $r2
   subi $r4, 2                            # r4 shouload hoload value 73
@@ -172,7 +172,7 @@ main2: subr $r4, $r4
       shl $r2, 4 # 16
       jmp store_second
     calc_second_3: subr $r2, $r2
-    subi $r2, 1
+      subi $r2, 2
     store_second: store $r4, $r1
     addr $r4, $r2
     addi $r1, 1 # 196
@@ -347,8 +347,9 @@ main2: subr $r4, $r4
   load $r4, $r3 # (p0 ^ calc_p0)
   addi $r3, 1 # 206
   load $r1, $r3 # "incorrect"
-  xor $r1, $r4
-  shl $r1, 7
+  xor $r4, $r1
+  addr $r1, $r4
+  shl $r1, 6
   subi $r3, 2 # 204
   load $r4, $r3
   addi $r4, 1
@@ -373,7 +374,6 @@ main2: subr $r4, $r4
   subi $r1, 1 # 15
   subr $r1, $r4
   bneqz main2
-  move $r1, $r1
 # Storing locations
 # [203] = 64, pointer to where parity message is located
 # [204] = 94, pointer to where to place de-paritied, fixed messages

@@ -22,7 +22,7 @@ module InstROM #(parameter A=16, W=9) (
 
 
   initial begin		                  // load from external text file
-  	$readmemb("C:\\141L-Lab-2\\our_processor\\final_program.txt",inst_rom);
+  	$readmemb("our_processor\\all_programs.txt",inst_rom);
   end
 
 endmodule

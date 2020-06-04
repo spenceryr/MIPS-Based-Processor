@@ -10,10 +10,25 @@ module IF(
   output logic DONE
   );
 
+  logic p1_start = 0, p2_start = 0, p3_start = 0;
+
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
-	if(Init)
-      PC <= 'd66;				  // for first program; want different value for 2nd or 3rd
-	else if(PC == 'd300)
+	if(Init) begin
+      DONE <= '0;
+      if (~p1_start) begin
+        PC <= 'd66;
+        p1_start <= '1;
+      end
+      else if (~p2_start) begin
+        PC <= 'd299;
+        p2_start <= '1;
+      end
+      else begin
+        PC <= 'd609;
+        p3_start <= '1;
+      end
+  end
+	else if((PC == 'd299 & ~p2_start) | (PC == 'd609 & ~p3_start) | (PC == 'd772))
 	  DONE <= '1;
 	else if(Branch_abs)	      // unconditional absolute jump
 	  PC <= Target;
@@ -21,7 +36,6 @@ module IF(
 	  PC <= Target + PC;
    else if(Branch_rel_nz && ~ALU_zero)
       PC <= Target + PC;
-
 	else
 	  PC <= PC+'d1;		      // default increment (no need for ARM/MIPS +4 -- why?)
 
