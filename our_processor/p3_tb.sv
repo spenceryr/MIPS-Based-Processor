@@ -5,7 +5,7 @@
 // This is NOT synthesizable; use for logic simulation only
 // Verilog Test Fixture created for module: TopLevel
 
-module simple_t1b;	     // Lab 17
+module simple_tb;	     // Lab 17
 
 logic clk   = 0,                 // clock source -- drives DUT input of same name
       reset = 1;	             // master reset -- drives DUT input of same name

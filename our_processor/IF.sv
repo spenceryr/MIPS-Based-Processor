@@ -12,7 +12,7 @@ module IF(
 
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
 	if(Init)
-      PC <= 'd66;				  // for first program; want different value for 2nd or 3rd
+      PC <= 'd0;				  // for first program; want different value for 2nd or 3rd
 	else if(PC == 'd300)
 	  DONE <= '1;
 	else if(Branch_abs)	      // unconditional absolute jump

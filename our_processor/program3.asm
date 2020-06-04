@@ -132,7 +132,8 @@ last_byte: subr $r1, $r1
   store $r1, $r4
   addi $r4, 2     # r4 should hold 6 at this point
   load $r3, $r4   # r3 should hold address of the last byte of data
-  addi $r4, 6     # r4 should hold 9 at this point
+  load $r1, $r3
+  addi $r4, 3     # r4 should hold 9 at this point
   store $r1, $r4
 
 last_byte_bit_loop: subr $r4, $r4
@@ -168,7 +169,9 @@ last_byte_bit_loop: subr $r4, $r4
 
 
 # shift data byte and update
-after_last_pattern_check: subi $r4, 2       # r4 should hold 9 at this point, pc = 128
+after_last_pattern_check: subr $r4, $r4
+  addi $r4, 7 
+  addi $r4, 2       # r4 should hold 9 at this point, pc = 128
   load $r1, $r4 
   shl $r1, 1
   store $r1, $r4
