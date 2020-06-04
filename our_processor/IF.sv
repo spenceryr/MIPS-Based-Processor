@@ -10,19 +10,11 @@ module IF(
   output logic DONE
   );
 
-  logic [15:0] PC_INIT = 'd0;
-
   always_ff @(posedge CLK)	  // or just always; always_ff is a linting construct
 	if(Init)
-      PC <= PC_INIT;				  // for first program; want different value for 2nd or 3rd
-	else if(PC == 'd999) begin
+      PC <= 'd66;				  // for first program; want different value for 2nd or 3rd
+	else if(PC == 'd300)
 	  DONE <= '1;
-      PC_INIT <= 'd124;
-    end
-    else if (PC == 'd999) begin
-      DONE <= '1;
-      PC_INIT <= 'd301;
-    end
 	else if(Branch_abs)	      // unconditional absolute jump
 	  PC <= Target;
 	else if(Branch_rel_z && ALU_zero) // conditional relative jump

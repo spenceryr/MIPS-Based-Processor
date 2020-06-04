@@ -74,12 +74,12 @@ def split_line(line):
             break
     return line.split()
 
-def instr_to_mc(instr, line, line_num):
+def instr_to_mc(instr, line, line_num, ic):
     op_code = None
     args_struct = None
     f_code = None
     args = ""
-    print(instr)
+    print(str(ic) + " " + str(instr))
     if len(instr) > 2 and instr[0] in LINKS and instr[1] == ":":
         instr = instr[2:]
     elif len(instr) > 2 and instr[0] not in LINKS and instr[1] == ":":
@@ -203,12 +203,12 @@ def build_list(filename):
                     link_rel(l, ic)
                 elif "call" in l or "jmp" in l:
                     link_abs(l, ic)
-                instrs.append((l, line.decode("ascii"), i))
+                instrs.append((l, line.decode("ascii"), i, ic))
 
     if NEED_LINK:
         raise CithLinkError("The following have no labels to branch/jump to: {}".format(list(NEED_LINK.keys())), "", 0)
-    for l, line, i in instrs:
-        results.append(instr_to_mc(l, line, i))
+    for l, line, i, ic in instrs:
+        results.append(instr_to_mc(l, line, i, ic))
 
     return results
 
