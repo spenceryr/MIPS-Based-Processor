@@ -19,7 +19,7 @@ module datapath(
            fcode
 );
 
-int fi = $fopen("test_out.txt", "w");
+//int fi = $fopen("test_out.txt", "w");
 
 
 logic [7:0] ALU_out, ALU_in_b;
@@ -143,8 +143,8 @@ ALU alu (.INPUTA(reg_a_out),
          .S_OUT(ALU_s_out),
          .ZERO(ALU_zero));
 
-always @(posedge CLK)
- $fdisplay(fi, "%d %s %d %d = %d %t\n", PC, op_mne'(CTRL_alu_op), reg_a_out, ALU_in_b, ALU_out, $time);
+//always @(posedge CLK)
+// $fdisplay(fi, "%d %s %d %d = %d %t\n", PC, op_mne'(CTRL_alu_op), reg_a_out, ALU_in_b, ALU_out, $time);
 
 data_mem dm (.CLK(CLK),
              .DataAddress(reg_b_out),

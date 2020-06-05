@@ -111,7 +111,7 @@ initial begin
     d2_bad1[i] = d2_good[i] ^ (1'b1<<flip[i]);
 // flip second bit about 25% of the time (flip2<16)		// 00_0010     1010
 // if flip2[5:4]!=0, flip2 will have no effect, and we'll have a one-bit flip
-    flip2[i] = $random;
+    flip2[i] = 16;
 	d2_bad[i] = d2_bad1[i] ^ (1'b1<<flip2[i]);
 // if flip2[5:4]==0 && flip2[3:0]==flip, then flip2 undoes flip, so no error
 	DUT.dp.dm.core[65+2*i] = {d2_bad[i][15:8]};
@@ -175,12 +175,12 @@ initial begin
   $display("program 2 score = %d out of %d",score2,case2);
 // program 3
 // pattern we are looking for; experiment w/ various values
-  pat = 5'b00000;//5'b10101;//$random;
+  pat = 5'b11111;//5'b00000;//5'b10101;//$random;
   str2 = 0;
   DUT.dp.dm.core[160] = pat;
   for(int i=0; i<32; i++) begin
 // search field; experiment w/ various vales
-    mat_str[i] = 8'b00000000;//8'b01010101;// $random;
+    mat_str[i] = 8'b11111111;//8'b00000000;//8'b01010101;// $random;
 	DUT.dp.dm.core[128+i] = mat_str[i];
 	str2 = (str2<<8)+mat_str[i];
   end
@@ -201,7 +201,7 @@ initial begin
 	str2 = str2<<1;
   end
   #10ns req   = 1'b1;      // pulse request to DUT
-  for (int i = 0; i < 16; i ++)
+  for (int i = 0; i < 255; i ++)
     DUT.dp.dm.core[i] = '0;
   DUT.dp.dm.core[6] = 'd128;
   DUT.dp.dm.core[7] = 'd252;
